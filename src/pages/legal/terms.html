@@ -29,10 +29,28 @@
     <link rel="stylesheet" href="legal.css" />
   </head>
   <body>
-    <!-- =====================================================
-      HEADER
-  ===================================================== -->
+    <header id="site-header">
+      <div id="header-container">
+        <a href="/" id="brand">
+          <img src="/assets/logo.webp" alt="" width="127" height="148" />
+        </a>
 
+        <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation" />
+        <label for="nav-toggle" id="nav-toggle-label">
+          <i class="icon burger" id="icon-open"></i>
+          <i class="icon x-lg" id="icon-close"></i>
+        </label>
+
+        <nav id="main-nav">
+          <ul class="reset">
+            <li><a href="/#hero">Home</a></li>
+            <li><a href="/#services-section">Servizi</a></li>
+            <li><a href="/#portfolio-section">Portfolio</a></li>
+            <li><a href="/contact" class="btn cta">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <!-- Document Wrapper Container -->
     <div id="legal-document">
       <article aria-labelledby="policy-title">
@@ -169,5 +187,109 @@
         </main>
       </article>
     </div>
+    <footer id="site-footer" role="contentinfo">
+      <div class="footer-top">
+        <div class="footer-container">
+          <div class="footer-col footer-brand">
+            <a href="/" class="footer-logo">
+              <span class="logo-zeller">ZELLER</span>
+              <span class="logo-industries">INDUSTRIES</span>
+            </a>
+            <p class="footer-desc">
+              Boutique di Software Engineering, sviluppo di web application ad
+              alte prestazioni e ricerca tecnologica.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-title">Navigazione</h2>
+            <ul class="footer-links">
+              <li><a href="/#hero">Home</a></li>
+              <li><a href="/#services-section">Servizi</a></li>
+              <li><a href="/#portfolio-section">Portfolio</a></li>
+              <li>
+                <a
+                  href="https://store.zellerindustries.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Store Ufficiale</a
+                >
+              </li>
+              <li><a href="/contact">Contatti</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-title">Competenze</h2>
+            <ul class="footer-links">
+              <li><a href="/#services-section">Software Custom</a></li>
+              <li><a href="/#services-section">Web &amp; Mobile App</a></li>
+              <li><a href="/#services-section">Architetture Cloud</a></li>
+              <li><a href="/#services-section">Consulenza R&amp;D</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-title">Connettiti</h2>
+            <div class="social-links">
+              <a
+                href="https://github.com/zellerindustries"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub di Zeller Industries"
+              >
+                <i class="icon github" aria-hidden="true"></i>
+                <span class="sr-only">GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/zellerindustries"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn di Zeller Industries"
+              >
+                <i class="icon linkedin" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+              <a
+                href="https://wa.me/393513878958"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contatto WhatsApp"
+              >
+                <i class="icon whatsapp" aria-hidden="true"></i>
+                <span class="sr-only">WhatsApp</span>
+              </a>
+              <a href="/form" aria-label="Vai al modulo di contatto">
+                <i class="icon send-fill" aria-hidden="true"></i>
+                <span class="sr-only">Modulo di Contatto</span>
+              </a>
+            </div>
+            <div class="back-to-top-wrapper">
+              <a href="#legal-document" aria-label="Torna all'inizio della pagina">
+                <i class="icon arrow-up" aria-hidden="true"></i>
+                <span>Torna su</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <div class="legal-info">
+            <p>&copy; 2026 Zeller Industries. Tutti i diritti riservati.</p>
+            <p class="company-details">
+              <span>P.IVA: IT03209750649</span> &bull;
+              <span>Italia</span>
+            </p>
+          </div>
+          <div class="legal-links">
+            <a href="/legal/privacy">Informativa sulla Riservatezza</a>
+            <a href="/legal/cookie">Informativa sui Cookie</a>
+            <a href="/legal/terms">Termini e Condizioni</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
