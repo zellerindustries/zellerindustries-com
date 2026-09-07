@@ -122,3 +122,7 @@
 .icon.award-fill::before {
   content: "\F153";
 }
+
+.icon.send-fill::before {
+  content: "\F6B9";
+}
