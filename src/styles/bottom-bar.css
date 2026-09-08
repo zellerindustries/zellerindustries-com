@@ -132,11 +132,11 @@
    CURRENT PAGE
    -------------------------------------------------------------------------- */
 
-.bottom-bar-container .btn[aria-current="page"] {
+.bottom-bar-container .btn[aria-current='page'] {
   color: var(--clr-text-main);
 }
 
-.bottom-bar-container .btn[aria-current="page"] .icon {
+.bottom-bar-container .btn[aria-current='page'] .icon {
   color: var(--clr-primary);
 }
 

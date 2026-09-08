@@ -1,7 +1,4 @@
-export function debounce<T extends (...args: any[]) => void>(
-  fn: T,
-  delay: number,
-) {
+export function debounce<T extends (...args: any[]) => void>(fn: T, delay: number) {
   let t: number;
   return (...args: Parameters<T>) => {
     clearTimeout(t);
@@ -10,7 +7,7 @@ export function debounce<T extends (...args: any[]) => void>(
 }
 
 export function sanitize(s: string): string {
-  const t = document.createElement("div");
+  const t = document.createElement('div');
   t.textContent = s;
   return t.innerHTML;
 }

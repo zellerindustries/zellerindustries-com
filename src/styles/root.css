@@ -7,8 +7,8 @@
    FONT DECLARATIONS
 ------------------------------ */
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/orbitron.woff2") format("woff2");
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -60,8 +60,8 @@
   --clr-element-border: 1px solid var(--clr-border);
 
   /* FONT */
-  --font-display: "Orbitron", sans-serif;
-  --font-body: "Roboto", sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Roboto', sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -80,9 +80,7 @@
   --space-sm: var(--space-base);
   --space-md: calc(var(--space-base) * var(--ratio));
   --space-lg: calc(var(--space-base) * var(--ratio) * var(--ratio));
-  --space-xl: calc(
-    var(--space-base) * var(--ratio) * var(--ratio) * var(--ratio)
-  );
+  --space-xl: calc(var(--space-base) * var(--ratio) * var(--ratio) * var(--ratio));
 
   /* RADIUS */
   --radius-sm: 8px;

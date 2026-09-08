@@ -32,7 +32,7 @@ body {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     Helvetica,
     Arial,
@@ -65,15 +65,11 @@ body {
 
 /* Subtly glows behind the article container */
 #legal-document > article::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-    circle at top right,
-    rgba(251, 146, 60, 0.12),
-    transparent 70%
-  );
+  background: radial-gradient(circle at top right, rgba(251, 146, 60, 0.12), transparent 70%);
   opacity: 0.5;
   z-index: 0;
 }
@@ -187,7 +183,7 @@ body {
 
 /* Automatic prepending of "Article X — " to section titles (h2) */
 #legal-document main > section > h2::before {
-  content: "Article " counter(article-counter) " — ";
+  content: 'Article ' counter(article-counter) ' — ';
   color: var(--doc-primary);
   font-weight: 700;
 }
@@ -222,7 +218,7 @@ body {
 /* Counters applied to pseudo-elements */
 #legal-document main > section > h2 + ul > li::before,
 #legal-document main > section > h2 + ol > li::before {
-  content: counter(article-counter) "." counter(clause-counter);
+  content: counter(article-counter) '.' counter(clause-counter);
   position: absolute;
   left: 0;
   top: 0;
@@ -249,8 +245,7 @@ body {
 
 #legal-document main > section > h2 + ul > li > ul > li::before,
 #legal-document main > section > h2 + ol > li > ol > li::before {
-  content: counter(article-counter) "." counter(clause-counter) "."
-    counter(subclause-counter);
+  content: counter(article-counter) '.' counter(clause-counter) '.' counter(subclause-counter);
   position: absolute;
   left: 0;
   top: 0;
@@ -263,7 +258,7 @@ body {
    ========================================================= */
 
 /* Critical Alert Notices */
-#legal-document aside[data-type="alert"] {
+#legal-document aside[data-type='alert'] {
   background: rgba(153, 72, 7, 0.25);
   border: 1px solid var(--clr-primary-hover);
   border-left: 4px solid var(--doc-primary);
@@ -274,13 +269,13 @@ body {
   z-index: 1;
 }
 
-#legal-document aside[data-type="alert"] p {
+#legal-document aside[data-type='alert'] p {
   margin-bottom: 0;
   color: var(--doc-text-main);
 }
 
 /* Informative / Decorative Glow Blocks */
-#legal-document aside[data-type="info"] {
+#legal-document aside[data-type='info'] {
   background: rgba(0, 102, 153, 0.25);
   border: 1px solid #33b5e5;
   border-left: 4px solid var(--doc-accent);
@@ -340,7 +335,7 @@ body {
 
 /* Standard execution signing underlines */
 #legal-document article > footer > div > span::before {
-  content: "";
+  content: '';
   display: block;
   margin-top: 3rem;
   margin-bottom: 0.25rem;
@@ -396,7 +391,7 @@ body {
   }
 
   #legal-document > nav,
-  [data-print="none"] {
+  [data-print='none'] {
     display: none !important;
   }
 
@@ -405,8 +400,8 @@ body {
     text-decoration: none !important;
   }
 
-  #legal-document a[href^="http"]::after {
-    content: " (" attr(href) ")";
+  #legal-document a[href^='http']::after {
+    content: ' (' attr(href) ')';
     font-size: 0.875rem;
     color: #555555;
   }

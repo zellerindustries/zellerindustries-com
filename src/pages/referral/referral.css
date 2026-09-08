@@ -3,11 +3,7 @@
 ===================================================== */
 
 #referral-hero {
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(204, 102, 0, 0.1) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(circle at 50% 0%, rgba(204, 102, 0, 0.1) 0%, transparent 60%);
 }
 
 /* Content wrapper, mirrors .footer-container's centering formula */

@@ -1,6 +1,6 @@
-import { CONFIG, type ContactFormData } from "./form-types.js";
-import { validators } from "./form-validators.js";
-import { debounce, sanitize } from "./form-utils.js";
+import { CONFIG, type ContactFormData } from './form-types.js';
+import { validators } from './form-validators.js';
+import { debounce, sanitize } from './form-utils.js';
 
 /* ==========================================
    FORM INITIALIZATION
@@ -12,52 +12,28 @@ export function initForm(): void {
   /**
    * DOM Elements (check if exist)
    */
-  const contactForm = document.getElementById(
-    "contact-form",
-  ) as HTMLFormElement | null;
-  const submitButton = document.getElementById(
-    "submit-btn",
-  ) as HTMLButtonElement | null;
-  const statusDiv = document.getElementById(
-    "form-status",
-  ) as HTMLDivElement | null;
-  const successScreen = document.getElementById(
-    "form-success",
-  ) as HTMLDivElement | null;
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+  const submitButton = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const statusDiv = document.getElementById('form-status') as HTMLDivElement | null;
+  const successScreen = document.getElementById('form-success') as HTMLDivElement | null;
 
   // Exit early if form or required elements do not exist
   if (!contactForm || !submitButton || !statusDiv || !successScreen) {
-    console.warn("Contact form script loaded, but no form found on this page.");
+    console.warn('Contact form script loaded, but no form found on this page.');
     return;
   }
 
   /**
    * Fields (safe binding including select element)
    */
-  const nameField = contactForm.querySelector(
-    "#name",
-  ) as HTMLInputElement | null;
-  const emailField = contactForm.querySelector(
-    "#email",
-  ) as HTMLInputElement | null;
-  const subjectField = contactForm.querySelector(
-    "#subject",
-  ) as HTMLSelectElement | null;
-  const messageField = contactForm.querySelector(
-    "#message",
-  ) as HTMLTextAreaElement | null;
-  const privacyField = contactForm.querySelector(
-    "#privacy",
-  ) as HTMLInputElement | null;
+  const nameField = contactForm.querySelector('#name') as HTMLInputElement | null;
+  const emailField = contactForm.querySelector('#email') as HTMLInputElement | null;
+  const subjectField = contactForm.querySelector('#subject') as HTMLSelectElement | null;
+  const messageField = contactForm.querySelector('#message') as HTMLTextAreaElement | null;
+  const privacyField = contactForm.querySelector('#privacy') as HTMLInputElement | null;
 
-  if (
-    !nameField ||
-    !emailField ||
-    !subjectField ||
-    !messageField ||
-    !privacyField
-  ) {
-    console.warn("Contact form fields not found — script will not initialize.");
+  if (!nameField || !emailField || !subjectField || !messageField || !privacyField) {
+    console.warn('Contact form fields not found — script will not initialize.');
     return;
   }
 
@@ -83,12 +59,10 @@ export function initForm(): void {
   /**
    * Character Counter
    */
-  let counterEl = contactForm.querySelector(
-    ".char-counter",
-  ) as HTMLDivElement | null;
+  let counterEl = contactForm.querySelector('.char-counter') as HTMLDivElement | null;
   if (!counterEl) {
-    counterEl = document.createElement("div");
-    counterEl.className = "char-counter";
+    counterEl = document.createElement('div');
+    counterEl.className = 'char-counter';
     fields.message.after(counterEl);
   }
 
@@ -102,38 +76,34 @@ export function initForm(): void {
     const id = `${field.id}-error`;
     let el = document.getElementById(id);
     if (!el) {
-      el = document.createElement("div");
+      el = document.createElement('div');
       el.id = id;
-      el.className = "input-error";
+      el.className = 'input-error';
       field.after(el);
     }
     el.textContent = message;
-    field.classList.add("input-invalid");
-    field.setAttribute("aria-invalid", "true");
-    field.setAttribute("aria-describedby", id);
+    field.classList.add('input-invalid');
+    field.setAttribute('aria-invalid', 'true');
+    field.setAttribute('aria-describedby', id);
   };
 
-  const clearFieldError = (
-    field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement,
-  ) => {
+  const clearFieldError = (field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => {
     const id = `${field.id}-error`;
     document.getElementById(id)?.remove();
-    field.classList.remove("input-invalid");
-    field.removeAttribute("aria-invalid");
-    field.removeAttribute("aria-describedby");
+    field.classList.remove('input-invalid');
+    field.removeAttribute('aria-invalid');
+    field.removeAttribute('aria-describedby');
   };
 
   /**
    * Validation
    */
-  const isFieldValid = (name: keyof typeof fields) =>
-    !validators[name](fields[name].value.trim());
+  const isFieldValid = (name: keyof typeof fields) => !validators[name](fields[name].value.trim());
 
   const isPrivacyValid = () => privacyField.checked;
 
   const isFormValid = () =>
-    Object.keys(fields).every((k) => isFieldValid(k as keyof typeof fields)) &&
-    isPrivacyValid();
+    Object.keys(fields).every((k) => isFieldValid(k as keyof typeof fields)) && isPrivacyValid();
 
   const validateFieldUI = (name: keyof typeof fields) => {
     const field = fields[name];
@@ -148,10 +118,7 @@ export function initForm(): void {
 
   const validatePrivacyUI = () => {
     if (!privacyField.checked) {
-      setFieldError(
-        privacyField,
-        "Devi accettare la Privacy Policy per continuare.",
-      );
+      setFieldError(privacyField, 'Devi accettare la Privacy Policy per continuare.');
       return false;
     }
     clearFieldError(privacyField);
@@ -159,9 +126,7 @@ export function initForm(): void {
   };
 
   const validateFormUI = () => {
-    const fieldsValid = Object.keys(fields).every((k) =>
-      validateFieldUI(k as keyof typeof fields),
-    );
+    const fieldsValid = Object.keys(fields).every((k) => validateFieldUI(k as keyof typeof fields));
     const privacyValid = validatePrivacyUI();
     return fieldsValid && privacyValid;
   };
@@ -170,17 +135,17 @@ export function initForm(): void {
    * UI State
    */
   const showSuccessUI = () => {
-    contactForm.style.display = "none";
+    contactForm.style.display = 'none';
     successScreen.hidden = false;
-    successScreen.classList.add("active");
-    statusDiv.textContent = "";
-    statusDiv.className = "";
+    successScreen.classList.add('active');
+    statusDiv.textContent = '';
+    statusDiv.className = '';
   };
 
   const showFormUI = () => {
-    contactForm.style.display = "";
+    contactForm.style.display = '';
     successScreen.hidden = true;
-    successScreen.classList.remove("active");
+    successScreen.classList.remove('active');
   };
 
   /**
@@ -194,10 +159,10 @@ export function initForm(): void {
   /**
    * Status
    */
-  const updateStatus = (msg: string, type: "error" | "success") => {
+  const updateStatus = (msg: string, type: 'error' | 'success') => {
     statusDiv.textContent = msg;
-    statusDiv.className = "";
-    statusDiv.classList.add("active", type);
+    statusDiv.className = '';
+    statusDiv.classList.add('active', type);
   };
 
   /**
@@ -206,10 +171,7 @@ export function initForm(): void {
   const updateCounter = () => {
     const len = fields.message.value.length;
     counterEl!.textContent = `${len} / ${CONFIG.MAX_MESSAGE_LENGTH}`;
-    counterEl!.classList.toggle(
-      "warning",
-      len > CONFIG.MAX_MESSAGE_LENGTH * 0.9,
-    );
+    counterEl!.classList.toggle('warning', len > CONFIG.MAX_MESSAGE_LENGTH * 0.9);
   };
 
   /**
@@ -237,7 +199,7 @@ export function initForm(): void {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
-    const botField = formData.get("bot-field") as string;
+    const botField = formData.get('bot-field') as string;
 
     if (botField) {
       fakeSuccess();
@@ -253,15 +215,12 @@ export function initForm(): void {
     }
 
     if (!validateFormUI()) {
-      updateStatus("Correggi gli errori prima di inviare.", "error");
+      updateStatus('Correggi gli errori prima di inviare.', 'error');
       return;
     }
 
     if (hasActiveLock()) {
-      updateStatus(
-        "Per favore attendi 24 ore prima di inviare un altro messaggio.",
-        "error",
-      );
+      updateStatus('Per favore attendi 24 ore prima di inviare un altro messaggio.', 'error');
       return;
     }
 
@@ -271,22 +230,22 @@ export function initForm(): void {
       subject: fields.subject.value,
       message: sanitize(fields.message.value.trim()),
       privacy: privacyField.checked,
-      "bot-field": "",
+      'bot-field': '',
       submission_speed: timeToFill,
     };
 
-    const originalText = submitButton.textContent || "";
+    const originalText = submitButton.textContent || '';
 
-    updateStatus("Invio in corso...", "success");
+    updateStatus('Invio in corso...', 'success');
     submitButton.disabled = true;
-    submitButton.classList.add("loading");
+    submitButton.classList.add('loading');
 
     try {
       const res = await fetch(
-        "https://yeawb5yjfmqiz5bd7m2ehwqfem0gtqcw.lambda-url.eu-south-1.on.aws/",
+        'https://yeawb5yjfmqiz5bd7m2ehwqfem0gtqcw.lambda-url.eu-south-1.on.aws/',
         {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         },
       );
@@ -299,14 +258,11 @@ export function initForm(): void {
       showSuccessUI();
       formLoadTime = Date.now();
     } catch {
-      updateStatus(
-        "Impossibile inviare il messaggio. Riprova più tardi.",
-        "error",
-      );
+      updateStatus('Impossibile inviare il messaggio. Riprova più tardi.', 'error');
     } finally {
       if (!hasActiveLock()) {
         submitButton.disabled = false;
-        submitButton.classList.remove("loading");
+        submitButton.classList.remove('loading');
         submitButton.textContent = originalText;
         updateSubmitState();
       }
@@ -319,18 +275,18 @@ export function initForm(): void {
   const debouncedUpdate = debounce(updateSubmitState, CONFIG.DEBOUNCE_MS);
 
   Object.entries(fields).forEach(([key, field]) => {
-    field.addEventListener("input", () => {
+    field.addEventListener('input', () => {
       debouncedUpdate();
-      if (key === "message") updateCounter();
+      if (key === 'message') updateCounter();
     });
 
-    field.addEventListener("blur", () => {
+    field.addEventListener('blur', () => {
       validateFieldUI(key as keyof typeof fields);
     });
   });
 
   // Checkbox needs its own listener since it's not part of `fields`
-  privacyField.addEventListener("change", () => {
+  privacyField.addEventListener('change', () => {
     debouncedUpdate();
     if (!privacyField.checked) {
       validatePrivacyUI();
@@ -348,8 +304,8 @@ export function initForm(): void {
     showFormUI();
   }
 
-  contactForm.removeEventListener("submit", handleSubmit);
-  contactForm.addEventListener("submit", handleSubmit);
+  contactForm.removeEventListener('submit', handleSubmit);
+  contactForm.addEventListener('submit', handleSubmit);
 
   updateSubmitState();
   updateCounter();

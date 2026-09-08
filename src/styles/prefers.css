@@ -4,25 +4,25 @@
 
     /* PRIMARY – giallo/oro */
     --clr-primary: #cc6600;
-    --clr-primary-hover: #E48700;
+    --clr-primary-hover: #e48700;
 
     /* ACCENT – azzurro */
-    --clr-accent: #34C2FC;
-    --clr-accent-hover: #0089CB;
+    --clr-accent: #34c2fc;
+    --clr-accent-hover: #0089cb;
 
     /* BACKGROUND */
-    --clr-bg-main: #FFFDEA;
-    --clr-bg-alt: #F6F6F6;
-    --clr-surface: #E7E7E7;
-    --clr-surface-hover: #D1D1D1;
+    --clr-bg-main: #fffdea;
+    --clr-bg-alt: #f6f6f6;
+    --clr-surface: #e7e7e7;
+    --clr-surface-hover: #d1d1d1;
 
     /* TEXT */
     --clr-text-main: #262626;
-    --clr-text-muted: #6D6D6D;
+    --clr-text-muted: #6d6d6d;
 
     /* BORDER */
     --clr-element-border: 2px solid var(--clr-surface);
-    --clr-click-border: 2px solid #B0B0B0;
+    --clr-click-border: 2px solid #b0b0b0;
 
     /* Darkened so tier text still passes contrast against the light
        --clr-surface card — the dark-mode values above are unreadable here. */
@@ -34,8 +34,8 @@
 
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
   :root {
-    --clr-text-main: #FFFFFF;
-    --clr-text-muted: #E7E7E7;
+    --clr-text-main: #ffffff;
+    --clr-text-muted: #e7e7e7;
 
     --clr-surface: #111111;
     --clr-surface-hover: #222222;
@@ -43,7 +43,7 @@
     --clr-bg-alt: #000000;
 
     --clr-element-border: 2px solid var(--clr-surface);
-    --clr-click-border: 2px solid #3D3D3D;
+    --clr-click-border: 2px solid #3d3d3d;
 
     /* ACCENT più leggibile */
     --clr-accent: #111111;
@@ -56,20 +56,19 @@
     --clr-text-main: #000000;
     --clr-text-muted: #262626;
 
-    --clr-bg-main: #FFF9C4;
-    --clr-bg-alt: #F0F9FF;
+    --clr-bg-main: #fff9c4;
+    --clr-bg-alt: #f0f9ff;
 
     --clr-element-border: 2px solid var(--clr-surface);
-    --clr-click-border: 2px solid #3D3D3D;
+    --clr-click-border: 2px solid #3d3d3d;
 
     /* Primary più deciso */
-    --clr-primary: #E48700;
-    --clr-primary-hover: #CC6600;
+    --clr-primary: #e48700;
+    --clr-primary-hover: #cc6600;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
