@@ -33,6 +33,29 @@
     <link rel="stylesheet" href="../legal/legal.css" />
   </head>
   <body>
+    <header id="site-header">
+      <div id="header-container">
+        <a href="/" id="brand">
+          <img src="/assets/logo.webp" alt="" width="127" height="148" />
+        </a>
+
+        <input type="checkbox" id="nav-toggle" aria-label="Apri menu" />
+        <label for="nav-toggle" id="nav-toggle-label">
+          <i class="icon burger" id="icon-open"></i>
+          <i class="icon x-lg" id="icon-close"></i>
+        </label>
+
+        <nav id="main-nav">
+          <ul class="reset">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services-section">Servizi</a></li>
+            <li><a href="/#portfolio-section">Portfolio</a></li>
+            <li><a href="/referral" aria-current="page">Referral</a></li>
+            <li><a href="/#contact-section">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <!-- Document Wrapper Container -->
     <div id="legal-document">
       <article aria-labelledby="terms-title">
@@ -241,5 +264,96 @@
         </main>
       </article>
     </div>
+    <footer id="site-footer" role="contentinfo">
+      <div class="footer-top">
+        <div class="footer-container">
+          <div class="footer-col footer-brand">
+            <a href="/" class="footer-logo">
+              <span class="logo-zeller">ZELLER</span>
+              <span class="logo-industries">INDUSTRIES</span>
+            </a>
+            <p class="footer-desc">
+              Boutique di Software Engineering, sviluppo di web application ad
+              alte prestazioni e ricerca tecnologica.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-title">Contatti</h2>
+            <ul class="footer-links">
+              <li><a href="/form">Modulo di Contatto</a></li>
+              <li>
+                <a href="https://wa.me/393513878958">+39 351 3878958</a>
+              </li>
+              <li>
+                <a
+                  href="https://store.zellerindustries.com"
+                  target="_blank"
+                  rel="noopener"
+                  >store.zellerindustries.com</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2 class="footer-title">Connettiti</h2>
+            <div class="social-links">
+              <a
+                href="https://www.linkedin.com/company/zellerindustries"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn di Zeller Industries"
+              >
+                <i class="icon linkedin" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/zellerindustries"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub di Zeller Industries"
+              >
+                <i class="icon github" aria-hidden="true"></i>
+                <span class="sr-only">GitHub</span>
+              </a>
+              <a
+                href="https://www.instagram.com/zellerindustries_"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram di Zeller Industries"
+              >
+                <i class="icon instagram" aria-hidden="true"></i>
+                <span class="sr-only">Instagram</span>
+              </a>
+              <a
+                href="https://www.facebook.com/zellerindustries"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook di Zeller Industries"
+              >
+                <i class="icon facebook" aria-hidden="true"></i>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <div class="legal-info">
+            <p>&copy; 2026 Zeller Industries. Tutti i diritti riservati.</p>
+            <p class="company-details">
+              <span>P.IVA: IT03209750649</span> &bull;
+              <span>Italia</span>
+            </p>
+          </div>
+          <div class="legal-links">
+            <a href="/referral/terms">Termini e Condizioni</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
