@@ -23,6 +23,12 @@
     /* BORDER */
     --clr-element-border: 2px solid var(--clr-surface);
     --clr-click-border: 2px solid #B0B0B0;
+
+    /* Darkened so tier text still passes contrast against the light
+       --clr-surface card — the dark-mode values above are unreadable here. */
+    --clr-tier-bronze: #7a4a1f;
+    --clr-tier-silver: #58585a;
+    --clr-tier-gold: #7a6300;
   }
 }
 

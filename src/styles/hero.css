@@ -86,12 +86,6 @@
   gap: 1.25rem;
 }
 
-@media (max-width: 480px) {
-  .hero-grid-metrics {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 h1 {
   font-family: var(--font-display);
 }
@@ -103,6 +97,13 @@ h1 {
   align-items: center;
   gap: var(--space-sm);
   text-align: center;
+}
+
+/* linkinbio's hero only holds the logo/title, not the full marketing hero
+   content — sizing it to 80vh like the index.html hero leaves a huge empty
+   gap before the link list. */
+#hero:has(.logo-wrap) {
+  min-height: auto;
 }
 
 #hero .btn.secondary {

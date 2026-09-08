@@ -20,10 +20,14 @@
     background-color var(--t-fast);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--clr-primary);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+/* Hover-only lift is gated behind (hover: hover) so tapping a card on a
+   touch device doesn't leave it visually stuck in its hover state. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--clr-primary);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  }
 }
 
 .card .card-info,

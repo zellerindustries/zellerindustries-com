@@ -99,7 +99,6 @@
     transform var(--t-fast);
 }
 
-.footer-links a:hover,
 .footer-links a:focus-visible {
   color: var(--clr-primary);
   transform: translateX(3px);
@@ -136,7 +135,6 @@
     box-shadow var(--t-fast);
 }
 
-.social-links a:hover,
 .social-links a:focus-visible {
   color: var(--clr-text-inverse);
   background-color: var(--clr-primary);
@@ -163,7 +161,6 @@
   transition: color var(--t-fast);
 }
 
-.back-to-top-wrapper a:hover,
 .back-to-top-wrapper a:focus-visible {
   color: var(--clr-primary);
 }
@@ -210,7 +207,33 @@
   transition: color var(--t-fast);
 }
 
-.legal-links a:hover,
 .legal-links a:focus-visible {
   color: var(--clr-text-main);
+}
+
+/* ------------------------------
+   HOVER (mouse-only — gated so tapping a link on a touch device doesn't
+   leave it visually stuck in its hover state)
+------------------------------ */
+@media (hover: hover) and (pointer: fine) {
+  .footer-links a:hover {
+    color: var(--clr-primary);
+    transform: translateX(3px);
+  }
+
+  .social-links a:hover {
+    color: var(--clr-text-inverse);
+    background-color: var(--clr-primary);
+    border-color: var(--clr-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--clr-primary) 30%, transparent);
+  }
+
+  .back-to-top-wrapper a:hover {
+    color: var(--clr-primary);
+  }
+
+  .legal-links a:hover {
+    color: var(--clr-text-main);
+  }
 }

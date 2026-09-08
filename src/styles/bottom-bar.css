@@ -98,19 +98,24 @@
    INTERACTION
    -------------------------------------------------------------------------- */
 
-.bottom-bar-container .btn:hover {
-  color: var(--clr-text-main);
-  background: var(--clr-surface-hover);
-  border-color: transparent;
+/* Hover-only effects are gated behind (hover: hover) — this bar is
+   mobile-only (see the min-width:768px rule above), so an unguarded
+   :hover would stay visually "stuck" after every tap. */
+@media (hover: hover) and (pointer: fine) {
+  .bottom-bar-container .btn:hover {
+    color: var(--clr-text-main);
+    background: var(--clr-surface-hover);
+    border-color: transparent;
 
-  transform: translateY(-1px);
+    transform: translateY(-1px);
 
-  box-shadow: none;
-}
+    box-shadow: none;
+  }
 
-.bottom-bar-container .btn:hover .icon {
-  color: currentColor;
-  transform: translateY(-2px);
+  .bottom-bar-container .btn:hover .icon {
+    color: currentColor;
+    transform: translateY(-2px);
+  }
 }
 
 .bottom-bar-container .btn:active {

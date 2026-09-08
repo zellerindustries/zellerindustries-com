@@ -114,19 +114,19 @@
 .tier-bronze .tier-percentage,
 .tier-bronze h3,
 .tier-bronze .icon {
-  color: #c28851; /* Bronzo */
+  color: var(--clr-tier-bronze); /* Bronzo */
 }
 
 .tier-silver .tier-percentage,
 .tier-silver h3,
 .tier-silver .icon {
-  color: #d1d3d4; /* Argento */
+  color: var(--clr-tier-silver); /* Argento */
 }
 
 .tier-gold .tier-percentage,
 .tier-gold h3,
 .tier-gold .icon {
-  color: #f2c700; /* Oro */
+  color: var(--clr-tier-gold); /* Oro */
 }
 
 /* Note legali in calce */

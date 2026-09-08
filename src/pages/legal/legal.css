@@ -3,21 +3,29 @@
    Core Architecture: Pure Semantic Selectors & CSS Counters
    ========================================================= */
 
-/* The root scoping identifier for the legal module */
-#legal-document {
-  --legal-max-width: 75ch;
-  --legal-indent: 2rem; /* Increased to ensure text clears the numbers */
-
-  /*
-     LOCAL OVERRIDES: We explicitly abandon global --clr-* variables here
-     to prevent dark text from bleeding into dark backgrounds.
-  */
+/*
+   LOCAL OVERRIDES: We explicitly abandon global --clr-* variables here
+   to prevent dark text from bleeding into dark backgrounds. Declared on
+   body (not #legal-document) so body's own background-color below can
+   see them too — custom properties only inherit downward, and
+   #legal-document is a child of body, not an ancestor.
+*/
+body {
   --doc-bg-main: #0b1320;
+  --doc-surface: #111a2c; /* Card/nav background, one step lighter than doc-bg-main */
   --doc-text-main: #f1f5f9; /* Bright off-white for body text */
   --doc-text-muted: #94a3b8;
   --doc-primary: #fb923c; /* Readable orange for headings */
   --doc-accent: #38bdf8; /* Bright cyan for counters & links */
   --doc-border: rgba(255, 255, 255, 0.1);
+
+  background-color: var(--doc-bg-main);
+}
+
+/* The root scoping identifier for the legal module */
+#legal-document {
+  --legal-max-width: 75ch;
+  --legal-indent: 2rem; /* Increased to ensure text clears the numbers */
 
   /* Force standard UI font and increase base size for long-form reading */
   font-family:
@@ -32,15 +40,13 @@
   font-size: 1.05rem;
   line-height: 1.65;
   color: var(--doc-text-main);
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-}
-
-body {
-  background-color: var(--clr-bg-alt);
+  overflow-wrap: break-word; /* long emails/URLs wrap instead of overflowing at narrow widths */
 }
 #legal-document *,
 #legal-document *::before,
@@ -76,7 +82,7 @@ body {
 #legal-document > nav {
   max-width: var(--legal-max-width);
   margin: 0 auto 2rem auto;
-  background: var(--clr-bg-main);
+  background: var(--doc-surface);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--doc-border);
@@ -95,7 +101,7 @@ body {
 #legal-document article h2,
 #legal-document article h3 {
   font-family: inherit;
-  color: var(--clr-text-inverse);
+  color: var(--doc-text-main);
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-top: 2.5rem;
@@ -141,7 +147,7 @@ body {
 
 /* Strong emphasis tags */
 #legal-document strong {
-  color: var(--clr-text-inverse);
+  color: var(--doc-text-main);
   font-weight: 700;
 }
 
@@ -151,7 +157,7 @@ body {
   border-bottom: 2px solid var(--doc-primary);
   padding: 2px 6px;
   border-radius: 4px;
-  color: var(--clr-text-inverse);
+  color: var(--doc-text-main);
   font-weight: 700;
 }
 
@@ -174,7 +180,7 @@ body {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   padding: 1.5rem;
-  background: var(--clr-bg-main);
+  background: var(--doc-surface);
   border: 1px solid var(--doc-border);
   border-radius: 6px;
 }
@@ -270,7 +276,7 @@ body {
 
 #legal-document aside[data-type="alert"] p {
   margin-bottom: 0;
-  color: var(--clr-text-inverse);
+  color: var(--doc-text-main);
 }
 
 /* Informative / Decorative Glow Blocks */
@@ -293,8 +299,12 @@ body {
   transition: color 0.15s ease;
 }
 
-#legal-document a:hover {
-  color: #7dd3fc;
+/* Hover-only effect is gated behind (hover: hover) so tapping a link on a
+   touch device doesn't leave it visually stuck in its hover state. */
+@media (hover: hover) and (pointer: fine) {
+  #legal-document a:hover {
+    color: #7dd3fc;
+  }
 }
 
 #legal-document a:active {

@@ -96,10 +96,6 @@ select {
   cursor: pointer;
 }
 
-:is(input, select, textarea):hover:not(:disabled) {
-  background-color: color-mix(in srgb, var(--clr-bg-main) 85%, white);
-}
-
 :is(input, select, textarea):focus {
   outline: none;
   border-color: var(--clr-primary);
@@ -215,6 +211,15 @@ input[type="radio"]:active {
   margin-right: 0;
 }
 
+/* The base `label` rule makes labels flex containers, which splits the text
+   node, link, and required-marker ::after into separate flex items — once
+   the consent text wraps to multiple lines, the "*" ends up stranded on its
+   own instead of sitting right after the link. Block layout keeps it inline
+   with normal text flow. */
+.checkbox-row label {
+  display: block;
+}
+
 .checkbox-row .input-error {
   flex-basis: 100%;
 }
@@ -238,12 +243,6 @@ input[type="file"]::file-selector-button {
   transition:
     background-color var(--t-fast),
     border-color var(--t-fast);
-}
-
-input[type="file"]::file-selector-button:hover {
-  background-color: var(--clr-primary);
-  border-color: var(--clr-primary);
-  color: var(--clr-text-inverse);
 }
 
 input[type="range"] {
@@ -298,12 +297,6 @@ button[type="submit"] {
   box-shadow: 0 4px 10px rgba(204, 102, 0, 0.2);
 }
 
-button[type="submit"]:hover:not(:disabled) {
-  background-color: var(--clr-primary-hover);
-  box-shadow: 0 6px 15px rgba(204, 102, 0, 0.3);
-  transform: translateY(-2px);
-}
-
 button[type="submit"]:active:not(:disabled) {
   transform: translateY(0);
 }
@@ -321,10 +314,30 @@ button[type="reset"] {
   border-color: var(--clr-border);
 }
 
-button[type="reset"]:hover:not(:disabled) {
-  background-color: var(--clr-surface);
-  color: var(--clr-text-main);
-  border-color: var(--clr-text-muted);
+/* Hover-only effects are gated behind (hover: hover) so tapping a control
+   on a touch device doesn't leave it visually stuck in its hover state. */
+@media (hover: hover) and (pointer: fine) {
+  :is(input, select, textarea):hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--clr-bg-main) 85%, white);
+  }
+
+  input[type="file"]::file-selector-button:hover {
+    background-color: var(--clr-primary);
+    border-color: var(--clr-primary);
+    color: var(--clr-text-inverse);
+  }
+
+  button[type="submit"]:hover:not(:disabled) {
+    background-color: var(--clr-primary-hover);
+    box-shadow: 0 6px 15px rgba(204, 102, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  button[type="reset"]:hover:not(:disabled) {
+    background-color: var(--clr-surface);
+    color: var(--clr-text-main);
+    border-color: var(--clr-text-muted);
+  }
 }
 
 /* ==========================================
