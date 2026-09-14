@@ -14,8 +14,8 @@
   "homepage": "https://github.com/zeller-dev/zeller-industries-githubpages-landing#readme",
   "scripts": {
     "prepare": "husky",
-    "build": "npx mz b",
-    "start": "npm run build && npx serve ./dist",
+    "build": "mz b",
+    "start": "npm run build && serve ./dist",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

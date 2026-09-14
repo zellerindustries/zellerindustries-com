@@ -7,7 +7,11 @@
       "styles": "",
       "public": ""
     },
-    "exclude": ["form-types.ts", "form-validators.ts", "form-utils.ts"],
+    "exclude": [
+      "form-types.ts",
+      "form-validators.ts",
+      "form-utils.ts"
+    ],
     "externals": {
       "./node_modules/bootstrap-icons/font/fonts": "fonts"
     }
@@ -16,7 +20,8 @@
     "dir": "./dist",
     "replace": {
       "../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": "/fonts/bootstrap-icons.woff2",
-      "../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": "/fonts/bootstrap-icons.woff"
+      "../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": "/fonts/bootstrap-icons.woff",
+      "_DOMAIN_": "zellerindustries.com"
     },
     "css": {
       "bundling": true,
