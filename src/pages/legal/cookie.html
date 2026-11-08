@@ -32,7 +32,7 @@
   <body>
     <header id="site-header">
       <div id="header-container">
-        <a href="/" id="brand">
+        <a href="/" id="brand" aria-label="Zeller Industries – torna alla home page">
           <img src="/assets/logo.webp" alt="" width="127" height="148" />
         </a>
 
@@ -42,7 +42,7 @@
           <i class="icon x-lg" id="icon-close"></i>
         </label>
 
-        <nav id="main-nav">
+        <nav id="main-nav" aria-label="Navigazione principale">
           <ul class="reset">
             <li><a href="/#hero">Home</a></li>
             <li><a href="/#services-section">Servizi</a></li>
@@ -53,7 +53,7 @@
       </div>
     </header>
     <!-- Document Wrapper Container -->
-    <div id="legal-document">
+    <main id="legal-document">
       <article aria-labelledby="policy-title">
         <header>
           <h1 id="policy-title">Informativa sui Cookie (Cookie Policy)</h1>
@@ -63,7 +63,7 @@
           </p>
         </header>
 
-        <main>
+        <div class="legal-body">
           <!-- Section 1 -->
           <section aria-labelledby="sec-politica">
             <h2 id="sec-politica">Politica sull'uso dei Cookie</h2>
@@ -159,9 +159,9 @@
               </li>
             </ul>
           </section>
-        </main>
+        </div>
       </article>
-    </div>
+    </main>
     <footer id="site-footer" role="contentinfo">
       <div class="footer-top">
         <div class="footer-container">

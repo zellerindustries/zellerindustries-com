@@ -89,8 +89,8 @@
    PRIMARY BUTTON (ORANGE)
 ------------------------------ */
 .btn.primary {
-  background-color: var(--clr-primary);
-  border-color: var(--clr-primary);
+  background-color: var(--clr-primary-cta);
+  border-color: var(--clr-primary-cta);
   color: var(--clr-text-inverse);
 }
 

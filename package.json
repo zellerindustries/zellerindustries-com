@@ -17,16 +17,29 @@
     "build": "mz b",
     "start": "npm run build && serve ./dist",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint:html": "htmlhint \"src/pages/**/*.html\"",
+    "lint:css": "stylelint \"src/styles/**/*.css\"",
+    "lint:a11y": "npm run build && node scripts/lint-a11y.mjs",
+    "lint:links": "npm run build && node scripts/lint-links.mjs",
+    "lint:spelling": "cspell \"src/pages/**/*.html\" --no-progress",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:spelling"
   },
   "dependencies": {
     "bootstrap-icons": "^1.13.1",
-    "minimaz-cli": "^0.5.2",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "minimaz-cli": "^0.5.2"
   },
   "devDependencies": {
+    "@axe-core/cli": "^4.13.0",
+    "@cspell/dict-it-it": "^3.1.6",
+    "cspell": "^10.3.4",
+    "htmlhint": "^1.9.2",
+    "linkinator": "^8.1.0",
     "prettier": "^3.9.6",
-    "serve": "^14.2.5"
+    "serve": "^14.2.5",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0"
   },
   "allowScripts": {
     "esbuild@0.28.2": true

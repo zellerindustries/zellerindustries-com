@@ -32,7 +32,7 @@
   <body>
     <header id="site-header">
       <div id="header-container">
-        <a href="/" id="brand">
+        <a href="/" id="brand" aria-label="Zeller Industries – torna alla home page">
           <img src="/assets/logo.webp" alt="" width="127" height="148" />
         </a>
 
@@ -42,7 +42,7 @@
           <i class="icon x-lg" id="icon-close"></i>
         </label>
 
-        <nav id="main-nav">
+        <nav id="main-nav" aria-label="Navigazione principale">
           <ul class="reset">
             <li><a href="/#hero">Home</a></li>
             <li><a href="/#services-section">Servizi</a></li>
@@ -53,7 +53,7 @@
       </div>
     </header>
     <!-- Document Wrapper Container -->
-    <div id="legal-document">
+    <main id="legal-document">
       <article aria-labelledby="policy-title">
         <header>
           <h1 id="policy-title">Informativa sulla Privacy (Privacy Policy)</h1>
@@ -68,7 +68,7 @@
           </p>
         </header>
 
-        <main>
+        <div class="legal-body">
           <!-- Introductory Context Block -->
           <p data-type="intro">
             La presente Informativa descrive le modalità di trattamento dei dati personali degli
@@ -188,9 +188,9 @@
               </p>
             </aside>
           </section>
-        </main>
+        </div>
       </article>
-    </div>
+    </main>
     <footer id="site-footer" role="contentinfo">
       <div class="footer-top">
         <div class="footer-container">
