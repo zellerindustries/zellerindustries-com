@@ -163,14 +163,14 @@ body {
    ========================================================= */
 
 /* Main legal body scoping area */
-#legal-document main {
+#legal-document .legal-body {
   counter-reset: article-counter;
   position: relative;
   z-index: 1;
 }
 
 /* Sequential Sections behave automatically as localized Articles */
-#legal-document main > section {
+#legal-document .legal-body > section {
   counter-increment: article-counter;
   counter-reset: clause-counter;
   margin-top: 2rem;
@@ -182,13 +182,13 @@ body {
 }
 
 /* Automatic prepending of "Article X — " to section titles (h2) */
-#legal-document main > section > h2::before {
+#legal-document .legal-body > section > h2::before {
   content: 'Article ' counter(article-counter) ' — ';
   color: var(--doc-primary);
   font-weight: 700;
 }
 
-#legal-document main > section > h2 {
+#legal-document .legal-body > section > h2 {
   font-size: 1.25rem;
   border-bottom: 1px solid var(--doc-border);
   padding-bottom: 0.75rem;
@@ -197,8 +197,8 @@ body {
 }
 
 /* Clause List (ul/ol directly following an Article title) */
-#legal-document main > section > h2 + ul,
-#legal-document main > section > h2 + ol {
+#legal-document .legal-body > section > h2 + ul,
+#legal-document .legal-body > section > h2 + ol {
   list-style-type: none;
   padding-left: 0;
   margin-top: 1rem;
@@ -206,8 +206,8 @@ body {
 }
 
 /* Singular Clauses (li) parsing multi-tier indexing (X.Y) */
-#legal-document main > section > h2 + ul > li,
-#legal-document main > section > h2 + ol > li {
+#legal-document .legal-body > section > h2 + ul > li,
+#legal-document .legal-body > section > h2 + ol > li {
   counter-increment: clause-counter;
   position: relative;
   padding-left: var(--legal-indent);
@@ -216,8 +216,8 @@ body {
 }
 
 /* Counters applied to pseudo-elements */
-#legal-document main > section > h2 + ul > li::before,
-#legal-document main > section > h2 + ol > li::before {
+#legal-document .legal-body > section > h2 + ul > li::before,
+#legal-document .legal-body > section > h2 + ol > li::before {
   content: counter(article-counter) '.' counter(clause-counter);
   position: absolute;
   left: 0;
@@ -227,24 +227,24 @@ body {
 }
 
 /* Sub-clauses nesting support (X.Y.Z) */
-#legal-document main > section > h2 + ul > li > ul,
-#legal-document main > section > h2 + ol > li > ol {
+#legal-document .legal-body > section > h2 + ul > li > ul,
+#legal-document .legal-body > section > h2 + ol > li > ol {
   counter-reset: subclause-counter;
   list-style-type: none;
   padding-left: 0;
   margin-top: 0.75rem;
 }
 
-#legal-document main > section > h2 + ul > li > ul > li,
-#legal-document main > section > h2 + ol > li > ol > li {
+#legal-document .legal-body > section > h2 + ul > li > ul > li,
+#legal-document .legal-body > section > h2 + ol > li > ol > li {
   counter-increment: subclause-counter;
   position: relative;
   padding-left: calc(var(--legal-indent) + 0.5rem);
   margin-bottom: 0.5rem;
 }
 
-#legal-document main > section > h2 + ul > li > ul > li::before,
-#legal-document main > section > h2 + ol > li > ol > li::before {
+#legal-document .legal-body > section > h2 + ul > li > ul > li::before,
+#legal-document .legal-body > section > h2 + ol > li > ol > li::before {
   content: counter(article-counter) '.' counter(clause-counter) '.' counter(subclause-counter);
   position: absolute;
   left: 0;
@@ -376,7 +376,7 @@ body {
     display: none !important;
   }
 
-  #legal-document main > section {
+  #legal-document .legal-body > section {
     break-inside: avoid;
     border: none !important;
     background: transparent !important;

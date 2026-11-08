@@ -27,6 +27,9 @@
   --clr-primary: #cc6600;
   --clr-primary-hover: #e67300;
   --clr-primary-light: #ff8533;
+  /* Darker than --clr-primary specifically for white-text CTA button fills —
+     --clr-primary itself fails WCAG AA (3.84:1) with white text at these sizes. */
+  --clr-primary-cta: #b85c00;
   --clr-accent: #006699;
   --clr-accent-hover: #0088cc;
 

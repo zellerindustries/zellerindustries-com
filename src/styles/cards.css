@@ -37,7 +37,8 @@
   flex: 1;
 }
 
-.card h3 {
+.card h3,
+.card .card-title {
   font-family: var(--font-display);
   font-size: var(--fs-md);
   font-weight: var(--font-weight-bold);
