@@ -8,7 +8,7 @@
 
 /* Content wrapper, mirrors .footer-container's centering formula */
 .container {
-  width: min(100%, var(--content-max-width));
+  width: min(100%, var(--max-width));
   margin-inline: auto;
   padding-inline: var(--section-padding-x);
 }
@@ -19,13 +19,13 @@
 
 .badge {
   display: inline-block;
-  margin-bottom: var(--space-sm);
-  padding: var(--space-2xs) var(--space-sm);
-  background-color: var(--clr-surface);
+  margin-bottom: var(--spacing-sm);
+  padding: var(--space-2xs) var(--spacing-sm);
+  background-color: var(--color-surface);
   border: var(--clr-element-border);
   border-radius: 9999px;
-  color: var(--clr-primary);
-  font-size: var(--fs-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -33,13 +33,13 @@
 
 /* Testo Hero & Highlight */
 .highlight-amount {
-  color: var(--clr-primary);
+  color: var(--color-primary);
   font-size: 1.3em;
   font-weight: 800;
 }
 
 .hero-subtitle {
-  color: var(--clr-text-muted);
+  color: var(--color-text-muted);
   font-weight: 700;
   letter-spacing: 1px;
   margin-top: 0.5rem;
@@ -52,8 +52,8 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: var(--clr-primary);
-  color: var(--clr-text-inverse);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
   font-weight: bold;
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -69,7 +69,7 @@
 }
 
 .tier-badge-label {
-  font-family: var(--font-display);
+  font-family: var(--font-secondary);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -78,7 +78,7 @@
 }
 
 .tier-percentage {
-  font-family: var(--font-display);
+  font-family: var(--font-secondary);
   font-size: 3.5rem;
   font-weight: 900;
   line-height: 1;
@@ -98,7 +98,7 @@
   padding: 0;
   margin: 0;
   font-size: 0.9rem;
-  border-top: 1px solid var(--clr-border);
+  border-top: 1px solid var(--color-border);
   padding-top: 1rem;
 }
 
@@ -128,7 +128,7 @@
 /* Note legali in calce */
 .legal-notice {
   font-size: 0.85rem;
-  color: var(--clr-text-muted);
+  color: var(--color-text-muted);
   margin: 2rem 0;
 }
 
@@ -139,5 +139,5 @@
 
 /* Section rhythm */
 #tiers {
-  background-color: var(--clr-bg-alt);
+  background-color: var(--color-bg-alt);
 }

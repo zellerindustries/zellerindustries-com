@@ -4,9 +4,9 @@
 
 #bottom-bar {
   position: fixed;
-  bottom: calc(var(--space-sm) + env(safe-area-inset-bottom));
-  left: var(--space-sm);
-  right: var(--space-sm);
+  bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+  left: var(--spacing-sm);
+  right: var(--spacing-sm);
   z-index: 999;
 
   display: flex;
@@ -17,16 +17,16 @@
 
 .bottom-bar-container {
   width: 100%;
-  max-width: var(--content-max-width);
+  max-width: var(--max-width);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-xs);
+  gap: var(--spacing-xs);
 
-  padding: var(--space-sm);
+  padding: var(--spacing-sm);
 
-  background: color-mix(in srgb, var(--clr-surface) 88%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 
@@ -54,14 +54,14 @@
   justify-content: center;
   gap: var(--space-2xs);
 
-  padding: var(--space-xs) var(--space-2xs);
+  padding: var(--spacing-xs) var(--space-2xs);
 
-  color: var(--clr-text-muted);
+  color: var(--color-text-muted);
   background: transparent;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
 
-  font-size: var(--fs-sm);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
   line-height: 1;
 
@@ -84,14 +84,14 @@
   align-items: center;
   justify-content: center;
 
-  font-size: var(--fs-lg);
+  font-size: var(--font-size-lg);
   line-height: 1;
 
   color: currentColor;
 
   transition:
-    color var(--t-fast),
-    transform var(--t-fast);
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 /* --------------------------------------------------------------------------
@@ -103,7 +103,7 @@
    :hover would stay visually "stuck" after every tap. */
 @media (hover: hover) and (pointer: fine) {
   .bottom-bar-container .btn:hover {
-    color: var(--clr-text-main);
+    color: var(--color-text);
     background: var(--clr-surface-hover);
     border-color: transparent;
 
@@ -124,7 +124,7 @@
 }
 
 .bottom-bar-container .btn:focus-visible {
-  outline: 2px solid var(--clr-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -133,25 +133,9 @@
    -------------------------------------------------------------------------- */
 
 .bottom-bar-container .btn[aria-current='page'] {
-  color: var(--clr-text-main);
+  color: var(--color-text);
 }
 
 .bottom-bar-container .btn[aria-current='page'] .icon {
-  color: var(--clr-primary);
-}
-
-/* --------------------------------------------------------------------------
-   RESPONSIVE
-   -------------------------------------------------------------------------- */
-
-@media (min-width: 768px) {
-  #bottom-bar {
-    display: none;
-  }
-}
-
-@media (max-width: 767.98px) {
-  body {
-    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
-  }
+  color: var(--color-primary);
 }

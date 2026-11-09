@@ -3,7 +3,7 @@
    ========================================================================== */
 
 #hero {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--spacing-lg) var(--spacing-md);
   min-height: 80vh;
   display: flex;
   justify-content: center;
@@ -20,18 +20,12 @@
   align-items: center;
 }
 
-@media (min-width: 992px) {
-  .hero-container {
-    grid-template-columns: 1fr 1.1fr;
-  }
-}
-
 /* --- Content Block (Left Column) --- */
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-md);
+  gap: var(--spacing-md);
 }
 
 .hero-content h1 {
@@ -44,13 +38,13 @@
 
 #title-zeller {
   display: block;
-  color: var(--clr-text-main);
+  color: var(--color-text);
 }
 
 #title-industries {
   display: block;
-  color: var(--clr-primary);
-  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-light) 100%);
+  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--clr-primary-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -58,7 +52,7 @@
 #hero-tagline {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   line-height: 1.6;
-  color: var(--clr-text-muted);
+  color: var(--color-text-muted);
   margin-bottom: 2rem;
   max-width: 540px;
 }
@@ -79,25 +73,9 @@
 }
 
 h1 {
-  font-family: var(--font-display);
-}
-
-/* --- Logo Wrap (linkinbio hero) --- */
-.logo-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-sm);
-  text-align: center;
-}
-
-/* linkinbio's hero only holds the logo/title, not the full marketing hero
-   content — sizing it to 80vh like the index.html hero leaves a huge empty
-   gap before the link list. */
-#hero:has(.logo-wrap) {
-  min-height: auto;
+  font-family: var(--font-secondary);
 }
 
 #hero .btn.secondary {
-  padding: var(--space-xs) var(--space-lg);
+  padding: var(--spacing-xs) var(--spacing-lg);
 }

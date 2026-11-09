@@ -4,12 +4,12 @@ Source for [zellerindustries.com](https://zellerindustries.com), the marketing s
 
 ## Stack
 
-Built with [minimaz-cli](https://github.com/zeller-dev/minimaz-cli), a minimal static site builder. No JS framework, no client-side bundler beyond minimaz's own CSS/HTML bundling.
+Built with @minimaz/sitekit, a minimal static site builder. No JS framework, no client-side bundler beyond minimaz's own CSS/HTML bundling.
 
 ## Commands
 
 ```bash
-npm run build   # build src/ into dist/ via minimaz-cli (minimaz.config.json)
+npm run build   # build src/ into dist/ via @minimaz/sitekit (minimaz.config.json)
 npm run start   # build, then serve ./dist locally
 ```
 

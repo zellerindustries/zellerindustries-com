@@ -1,18 +1,7 @@
 /* ========================================
-   ZELLER INDUSTRIES — Main Stylesheet
-   Modern, responsive, minimal, dark theme
+   ZELLER INDUSTRIES — Root tokens
+   Canonical token names (see websites/.claude/standard/root.template.css), site values.
 ======================================== */
-
-/* ------------------------------
-   FONT DECLARATIONS
------------------------------- */
-@font-face {
-  font-family: 'Orbitron';
-  src: url('/fonts/orbitron.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* ------------------------------
    ROOT VARIABLES
@@ -20,81 +9,93 @@
 :root {
   color-scheme: dark;
 
-  /* GOLDEN RATIO */
+  /* Colors */
+  --color-bg: #041e2f; /* Navy, not the brand book's flat #222222 — keeps the industrial/tech depth of the hero. */
+  --color-bg-alt: #07304a;
+  --color-surface: #222222;
+  --color-text: #eeeeee;
+  --color-text-muted: #b0b0b0;
+  /* Text drawn on top of primary/accent fills — stays white in every color-scheme branch. */
+  --color-text-inverse: #ffffff;
+  --color-primary: #cc6600;
+  --color-primary-hover: #e67300;
+  --color-accent: #006699;
+  --color-accent-hover: #0088cc;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-success: #388e3c;
+  --color-error: #d32f2f;
+  --color-focus: #ff8533;
+
+  /* Fonts */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Orbitron', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: max(0.875rem, calc(var(--font-size-base) / var(--ratio)));
+  --font-size-base: clamp(0.95rem, 0.9rem + 0.4vw, 1.1rem);
+  --font-size-lg: calc(var(--font-size-base) * var(--ratio));
+  --font-size-xl: calc(var(--font-size-base) * var(--ratio) * var(--ratio));
+  --font-size-xxl: calc(var(--font-size-base) * var(--ratio) * var(--ratio) * var(--ratio));
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* Spacing — fluid golden ratio */
+  --spacing-xs: calc(var(--space-base) / var(--ratio));
+  --spacing-sm: var(--space-base);
+  --spacing-md: calc(var(--space-base) * var(--ratio));
+  --spacing-lg: calc(var(--space-base) * var(--ratio) * var(--ratio));
+  --spacing-xl: calc(var(--space-base) * var(--ratio) * var(--ratio) * var(--ratio));
+  --spacing-xxl: calc(
+    var(--space-base) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)
+  );
+  --spacing-section: var(--spacing-xl);
+
+  /* Shape and effects */
+  --radius-sm: 8px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.35);
+  --transition-fast: 0.2s var(--ease);
+  --transition-base: 0.3s var(--ease);
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 4rem;
+
+  /* SITE-SPECIFIC TOKENS */
+  /* Golden ratio */
   --ratio: 1.618;
 
-  /* COLORS */
-  --clr-primary: #cc6600;
-  --clr-primary-hover: #e67300;
+  /* Darker than --color-primary specifically for white-text CTA button fills —
+     --color-primary itself fails WCAG AA (3.84:1) with white text at these sizes. */
   --clr-primary-light: #ff8533;
-  /* Darker than --clr-primary specifically for white-text CTA button fills —
-     --clr-primary itself fails WCAG AA (3.84:1) with white text at these sizes. */
   --clr-primary-cta: #b85c00;
-  --clr-accent: #006699;
-  --clr-accent-hover: #0088cc;
-
-  /* Navy, not the brand book's flat #222222 dark — deliberate deviation, keeps
-     the industrial/tech depth of the hero instead of generic dark-mode gray.
-     --clr-bg-alt already matches the brand's extended blue tint scale. */
-  --clr-bg-main: #041e2f;
-  --clr-bg-alt: #07304a;
-
-  --clr-surface: #222222;
   --clr-surface-hover: #2a2a2a;
 
-  --clr-text-main: #eeeeee;
-  --clr-text-muted: #b0b0b0;
-  /* Text drawn on top of --clr-primary/--clr-accent fills — stays white in every
-     color-scheme branch since those fills stay bright enough for it either way. */
-  --clr-text-inverse: #ffffff;
+  --clr-element-border: 1px solid var(--color-border);
 
-  /* STATUS */
-  --clr-error: #d32f2f;
-  --clr-success: #388e3c;
-
-  /* REFERRAL TIERS — readable against the dark --clr-surface card; light
+  /* REFERRAL TIERS — readable against the dark --color-surface card; light
      mode needs darker variants (see prefers.css) since these sit on a
      light card there too. */
   --clr-tier-bronze: #c28851;
   --clr-tier-silver: #d1d3d4;
   --clr-tier-gold: #f2c700;
 
-  --clr-border: rgba(255, 255, 255, 0.12);
-  --clr-element-border: 1px solid var(--clr-border);
-
-  /* FONT */
-  --font-display: 'Orbitron', sans-serif;
-  --font-body: 'Roboto', sans-serif;
   --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
 
-  /* FONT SIZE — Fluid Golden Ratio */
-  --fs-base: clamp(0.95rem, 0.9rem + 0.4vw, 1.1rem);
-  --fs-sm: max(0.875rem, calc(var(--fs-base) / var(--ratio)));
-  --fs-md: var(--fs-base);
-  --fs-lg: calc(var(--fs-base) * var(--ratio));
-  --fs-xl: calc(var(--fs-base) * var(--ratio) * var(--ratio));
-
-  /* SPACING — Fluid Golden Ratio */
   --space-base: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
   --space-2xs: calc(var(--space-base) / (var(--ratio) * var(--ratio)));
-  --space-xs: calc(var(--space-base) / var(--ratio));
-  --space-sm: var(--space-base);
-  --space-md: calc(var(--space-base) * var(--ratio));
-  --space-lg: calc(var(--space-base) * var(--ratio) * var(--ratio));
-  --space-xl: calc(var(--space-base) * var(--ratio) * var(--ratio) * var(--ratio));
 
-  /* RADIUS */
-  --radius-sm: 8px;
-  --radius-md: 20px;
-
-  /* TRANSITIONS */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --t-fast: 0.2s var(--ease);
 
-  /* LAYOUT */
-  --content-max-width: 1200px;
-  --section-padding-y: var(--space-xl);
-  --section-padding-x: var(--space-md);
+  --section-padding-y: var(--spacing-xl);
+  --section-padding-x: var(--spacing-md);
+
+  /* BREAKPOINTS: 480 / 768 / 1024 (reference only) */
 }

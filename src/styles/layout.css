@@ -1,0 +1,52 @@
+/* ------------------------------
+   DOCUMENT STRUCTURE
+------------------------------ */
+body {
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ------------------------------
+   MAIN & SECTIONS
+------------------------------ */
+main {
+  flex: 1;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+}
+
+main > * {
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+/* ------------------------------
+   GRID
+------------------------------ */
+.grid {
+  display: grid;
+  /* min(280px, 100%) instead of a bare 280px — a bare track minimum forces
+     the grid wider than its container (horizontal overflow) once the
+     viewport drops below ~280px plus padding. */
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  align-items: start;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* ------------------------------
+   LIST LAYOUT
+------------------------------ */
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin: var(--spacing-md);
+}
+
+.list > * {
+  width: 100%;
+}

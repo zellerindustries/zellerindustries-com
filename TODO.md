@@ -9,3 +9,4 @@
 - [x] Add one dedicated page per service under `src/pages/servizi/`
       (sviluppo-software, consulenza, manutenzione-assistenza, ricerca-sviluppo),
       linked from the homepage service cards, and add them to `sitemap.xml`.
+- [ ] Add booking

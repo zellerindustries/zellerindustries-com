@@ -4,7 +4,7 @@
    ========================================================= */
 
 /*
-   LOCAL OVERRIDES: We explicitly abandon global --clr-* variables here
+   LOCAL OVERRIDES: We explicitly abandon global --color-* variables here
    to prevent dark text from bleeding into dark backgrounds. Declared on
    body (not #legal-document) so body's own background-color below can
    see them too — custom properties only inherit downward, and
@@ -108,7 +108,7 @@ body {
 
 /* Document Main Header (First h1 inside the article) */
 #legal-document article > h1:first-of-type {
-  font-family: var(--font-display, inherit);
+  font-family: var(--font-secondary, inherit);
   font-size: 2rem;
   text-align: center;
   text-transform: uppercase;
@@ -138,7 +138,7 @@ body {
 }
 
 #legal-document ul {
-  padding-left: var(--space-md);
+  padding-left: var(--spacing-md);
 }
 
 /* Strong emphasis tags */
@@ -260,7 +260,7 @@ body {
 /* Critical Alert Notices */
 #legal-document aside[data-type='alert'] {
   background: rgba(153, 72, 7, 0.25);
-  border: 1px solid var(--clr-primary-hover);
+  border: 1px solid var(--color-primary-hover);
   border-left: 4px solid var(--doc-primary);
   padding: 1rem;
   border-radius: 4px;

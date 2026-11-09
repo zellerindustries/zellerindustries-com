@@ -1,0 +1,8 @@
+/* Self-hosted font declarations (served from /fonts). */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

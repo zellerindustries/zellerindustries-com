@@ -3,29 +3,29 @@
     color-scheme: light;
 
     /* PRIMARY – giallo/oro */
-    --clr-primary: #cc6600;
-    --clr-primary-hover: #e48700;
+    --color-primary: #cc6600;
+    --color-primary-hover: #e48700;
 
     /* ACCENT – azzurro */
-    --clr-accent: #34c2fc;
-    --clr-accent-hover: #0089cb;
+    --color-accent: #34c2fc;
+    --color-accent-hover: #0089cb;
 
     /* BACKGROUND */
-    --clr-bg-main: #fffdea;
-    --clr-bg-alt: #f6f6f6;
-    --clr-surface: #e7e7e7;
+    --color-bg: #fffdea;
+    --color-bg-alt: #f6f6f6;
+    --color-surface: #e7e7e7;
     --clr-surface-hover: #d1d1d1;
 
     /* TEXT */
-    --clr-text-main: #262626;
-    --clr-text-muted: #6d6d6d;
+    --color-text: #262626;
+    --color-text-muted: #6d6d6d;
 
     /* BORDER */
-    --clr-element-border: 2px solid var(--clr-surface);
+    --clr-element-border: 2px solid var(--color-surface);
     --clr-click-border: 2px solid #b0b0b0;
 
     /* Darkened so tier text still passes contrast against the light
-       --clr-surface card — the dark-mode values above are unreadable here. */
+       --color-surface card — the dark-mode values above are unreadable here. */
     --clr-tier-bronze: #7a4a1f;
     --clr-tier-silver: #58585a;
     --clr-tier-gold: #7a6300;
@@ -34,47 +34,36 @@
 
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
   :root {
-    --clr-text-main: #ffffff;
-    --clr-text-muted: #e7e7e7;
+    --color-text: #ffffff;
+    --color-text-muted: #e7e7e7;
 
-    --clr-surface: #111111;
+    --color-surface: #111111;
     --clr-surface-hover: #222222;
-    --clr-bg-main: #000000;
-    --clr-bg-alt: #000000;
+    --color-bg: #000000;
+    --color-bg-alt: #000000;
 
-    --clr-element-border: 2px solid var(--clr-surface);
+    --clr-element-border: 2px solid var(--color-surface);
     --clr-click-border: 2px solid #3d3d3d;
 
     /* ACCENT più leggibile */
-    --clr-accent: #111111;
-    --clr-accent-hover: #111111;
+    --color-accent: #111111;
+    --color-accent-hover: #111111;
   }
 }
 
 @media (prefers-color-scheme: light) and (prefers-contrast: more) {
   :root {
-    --clr-text-main: #000000;
-    --clr-text-muted: #262626;
+    --color-text: #000000;
+    --color-text-muted: #262626;
 
-    --clr-bg-main: #fff9c4;
-    --clr-bg-alt: #f0f9ff;
+    --color-bg: #fff9c4;
+    --color-bg-alt: #f0f9ff;
 
-    --clr-element-border: 2px solid var(--clr-surface);
+    --clr-element-border: 2px solid var(--color-surface);
     --clr-click-border: 2px solid #3d3d3d;
 
     /* Primary più deciso */
-    --clr-primary: #e48700;
-    --clr-primary-hover: #cc6600;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    --color-primary: #e48700;
+    --color-primary-hover: #cc6600;
   }
 }

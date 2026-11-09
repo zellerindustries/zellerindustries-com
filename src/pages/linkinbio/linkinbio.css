@@ -1,0 +1,15 @@
+/* --- Logo Wrap (linkinbio hero) --- */
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-align: center;
+}
+
+/* linkinbio's hero only holds the logo/title, not the full marketing hero
+   content — sizing it to 80vh like the index.html hero leaves a huge empty
+   gap before the link list. */
+#hero:has(.logo-wrap) {
+  min-height: auto;
+}
