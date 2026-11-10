@@ -1,10 +1,6 @@
-# CLAUDE.md
+# Zeller Industries site
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## What this is
-
-The marketing/landing site for Zeller Industries (zellerindustries.com), an Italian software engineering / IT consulting company. Static HTML/CSS site (Italian content, `lang="it"`), no client-side framework. One page (the contact form) has a TypeScript handler under `src/scripts/`, bundled by @minimaz/sitekit into `dist/scripts.js`; everything else is plain HTML/CSS.
+Static Italian landing site (`lang="it"`), no framework, built with `@minimaz/sitekit`. Only the contact form has JS: a TypeScript handler under `src/scripts/`.
 
 ## Commands
 
@@ -13,17 +9,19 @@ npm run build   # mz b --overwrite — builds src/ into dist/ via @minimaz/sitek
 npm run start   # build, then serve ./dist locally with `serve`
 ```
 
-Node version is pinned via `.nvmrc` (24.14.1); `.npmrc` sets `engine-strict=true` so installs fail outright on the wrong Node version. There is no test suite configured, and no lint/format script wired into `package.json`. The closest thing to linting is minimaz's own validator, run directly:
+Node version is pinned via `.nvmrc` (24.22.2); `.npmrc` sets `engine-strict=true` so installs fail outright on the wrong Node version. There is no test suite. Checks are lint scripts (also the template for the other `websites/` sites):
 
 ```bash
-npx minimaz validate --path=<file>   # validates a single HTML/CSS/JS/TS/JSON file
+npm run format:check   # prettier --check .
+npm run lint           # lint:html (htmlhint) + lint:css (stylelint) + lint:spelling (cspell, it/en)
+npm run lint:a11y      # builds, serves dist/, runs axe-core over every page
+npm run lint:links     # builds, serves dist/, crawls links with linkinator
+npx minimaz validate --path=<file>   # minimaz's own validator for one file
 ```
 
-To build a single page for a quick check, just run `npm run build` — minimaz builds the whole `src/` tree each time (there's no per-page build).
+The `.husky/pre-commit` hook runs `format:check`, `lint:html`, `lint:css` and `lint:spelling`; a failing commit means fix the finding or add a legitimate word to `cspell.json`, never `--no-verify`. `lint:a11y` and `lint:links` need a build and run by hand.
 
-**Known-broken pre-commit hook**: `.husky/pre-commit` runs `npm run format:check`, but no `format:check` script exists in `package.json` (only `prettier`/`.prettierrc.json`/`.prettierignore` are present, wired to nothing) — every commit currently fails at the hook unless it's bypassed. Don't "fix" this by adding `--no-verify` to commits; either add the missing `format:check` script (e.g. `prettier --check .`) or flag it to the user.
-
-`TODO.md` at the repo root tracks outstanding work — check it before assuming a gap is unintentional; as of the last pass through it, all three items (policy-page header/footer, mailto → `/form`, per-service pages) are checked off.
+`TODO.md` at the repo root tracks outstanding work — check it before assuming a gap is unintentional.
 
 ## Architecture
 
@@ -69,21 +67,20 @@ All top-level and `servizi/` pages use the standard `#site-header`/`#site-footer
 - **Tokens only, no hardcoded values.** Every color, spacing, font-size, radius, or transition timing must come from the custom properties in `src/styles/root.css`. If a needed value doesn't exist as a token, add it to `:root` there rather than inlining a literal in a component stylesheet.
 - **Adaptive theming already exists — extend it, don't fight it.** `src/styles/prefers.css` overrides the `--clr-*` tokens under `prefers-color-scheme: light`, `prefers-contrast: more`, and `prefers-reduced-motion: reduce`. A component that hardcodes a color instead of using a token silently opts out of all three. If a new component needs a color not covered by an existing token, add the token to `root.css` _and_ consider whether `prefers.css` needs a matching override, rather than inlining a literal.
 - **Respect the `@import` chain.** `src/style.css` is the only entry point pages load; a new component stylesheet has zero effect until it's added to the `@import` list (see Architecture above for the current order). Check that order before assuming a new rule will even apply.
-- **Don't invent new interaction curves.** Hover/focus/transition states use `--t-fast` / `--ease` — reuse them instead of adding new durations or easing functions per component.
+- **Transitions use `--t-fast` / `--ease`** — no new durations or easing curves per component.
 - **Gate every `:hover` behind `@media (hover: hover) and (pointer: fine)`.** A bare `:hover` rule stays visually "stuck" after a tap on touch devices. Every stylesheet in this repo groups its hover-only rules under one such block near the bottom of the file (see `buttons.css`, `header.css`, `footer.css`, `cards.css`, `bottom-bar.css`, `forms.css`, `legal.css` for the pattern) — `:focus-visible` states stay ungated since focus is keyboard/AT-driven, not touch-driven. New interactive components should follow the same split rather than writing an unguarded `selector:hover`.
 - **Custom properties only inherit downward.** If two sibling/descendant selectors both need a locally-scoped token (not from `:root`), declare it on their common ancestor, not on one of the descendants — declaring it lower means anything outside that subtree (e.g. `body`'s own `background-color`) can't see it. (`legal.css` learned this the hard way: its doc tokens were declared on `#legal-document`, a child of `body`, so `body`'s background couldn't read them.)
-- **Keep focus-visible and `.sr-only` intact.** `:focus-visible` has a global outline style in `root.css` — never suppress it (`outline: none`) without providing an equivalent visible focus state. Decorative-only elements that carry meaning for screen readers use `.sr-only`, not `display:none`.
-- **Contrast against the dark background.** Body text sits on `--clr-bg-main` (`#041e2f`)/`--clr-bg-alt`; when adding text or icon colors, check they read clearly against navy, not just against `--clr-surface`.
-- **Icon badges stay rounded-square.** The `.tile` icon treatment (padding + `border-radius: var(--radius-sm)`) is deliberate, not a placeholder — a `clip-path` hexagon version was tried and explicitly rejected as "very ugly." Don't reintroduce hexagon clip-paths on small (~44px) icon badges; if hexagon brand motifs come up again, ask what form they want first rather than reapplying that treatment.
+- **Never suppress the global `:focus-visible` outline** from `root.css` without an equivalent visible state.
+- **Icon badges stay rounded-square.** The `.tile` icon treatment (padding + `border-radius: var(--radius-sm)`) is deliberate, not a placeholder — a `clip-path` hexagon version was tried and rejected. Don't reintroduce hexagon clip-paths on small (~44px) icon badges; if hexagon brand motifs come up again, ask the maintainers what form they want first.
 - **Typography roles are fixed.** `--font-display` (Orbitron) is for `h2`/`h3` and other display/brand moments; `--font-body` (Roboto) is everything else. Don't mix the two within the same text block.
-- **Mobile-first, verify both ends.** The one existing breakpoint (`768px`) collapses grids/lists to single-column — when adding a new layout, design it to degrade the same way rather than adding an unrelated breakpoint scheme.
+- **One breakpoint (`768px`)** collapses grids/lists to a single column; new layouts degrade the same way, no extra breakpoints.
 - **Wrap `auto-fit`/`auto-fill` grid track minimums in `min(Npx, 100%)`.** A bare `minmax(280px, 1fr)` forces the grid wider than its container (horizontal overflow) once the viewport drops below track-width-plus-padding; `.grid`'s two breakpoints in `root.css` both do this already — match it in any new grid.
-- **No visual-identity changes on judgment call alone.** Anything touching brand colors, the hexagon/brand mark, or the overall dark palette is a design decision the user should confirm before you implement it broadly — small component tweaks (a card's padding, a button's hover state) don't need sign-off.
+- **No visual-identity changes on judgment call alone.** Anything touching brand colors, the hexagon/brand mark, or the overall dark palette is a design decision the maintainers should confirm before it is rolled out broadly — small component tweaks (a card's padding, a button's hover state) don't need sign-off.
 
 ## Skills
 
 - **claude-in-chrome** — before calling any CSS/layout change done, run `npm run start` and drive a real browser against `localhost` to check it, rather than relying on reading the CSS.
-- **design-sync** (`/design-sync`, backed by the `DesignSync` tool) — use to push components in `src/styles/` to a claude.ai/design project incrementally, or pull design changes back into these files. Only relevant when the user is actively working component-by-component against a Design System project on claude.ai, not for routine page edits.
+- **design-sync** (`/design-sync`, backed by the `DesignSync` tool) — use to push components in `src/styles/` to a claude.ai/design project incrementally, or pull design changes back into these files. Only relevant when working component-by-component against a Design System project on claude.ai, not for routine page edits.
 
 ## Deployment
 
