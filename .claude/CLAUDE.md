@@ -9,7 +9,7 @@ npm run build   # mz b --overwrite — builds src/ into dist/ via @minimaz/sitek
 npm run start   # build, then serve ./dist locally with `serve`
 ```
 
-Node version is pinned via `.nvmrc` (24.22.2); `.npmrc` sets `engine-strict=true` so installs fail outright on the wrong Node version. There is no test suite. Checks are lint scripts (also the template for the other `websites/` sites):
+Node version is pinned via `.nvmrc` (26.13.0); `.npmrc` sets `engine-strict=true` so installs fail outright on the wrong Node version. There is no test suite. Checks are lint scripts (also the template for the other `websites/` sites):
 
 ```bash
 npm run format:check   # prettier --check .
