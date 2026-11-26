@@ -35,6 +35,7 @@ footer > * {
 
 .footer-top {
   padding-block: var(--spacing-xl) var(--spacing-lg);
+  text-align: start;
 }
 
 .footer-top .footer-container {
@@ -61,12 +62,13 @@ footer > * {
 }
 
 .footer-brand .logo-industries {
-  color: var(--color-primary);
+  color: var(--clr-primary-text);
 }
 
 .footer-desc {
-  max-width: 300px;
-  margin-bottom: var(--spacing-md);
+  max-width: 30ch;
+  margin: 0 0 var(--spacing-xs);
+  text-align: start;
   color: var(--color-text-muted);
 }
 
@@ -75,10 +77,12 @@ footer > * {
    -------------------------------------------------------------------------- */
 
 .footer-title {
+  margin-bottom: var(--spacing-xs);
   color: var(--color-text);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0.02em;
+  text-align: start;
 }
 
 .footer-links {
@@ -87,61 +91,13 @@ footer > * {
   list-style: none;
 }
 
-.footer-links li {
-  margin-bottom: var(--spacing-xs);
-}
-
 .footer-links a {
-  display: inline-block;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition:
-    color var(--transition-fast),
-    transform var(--transition-fast);
-}
-
-.footer-links a:focus-visible {
-  color: var(--color-primary);
-  transform: translateX(3px);
-}
-
-/* --------------------------------------------------------------------------
-   SOCIAL LINKS
-   -------------------------------------------------------------------------- */
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-
-.social-links a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: calc(var(--spacing-lg) + var(--spacing-xs));
-  height: calc(var(--spacing-lg) + var(--spacing-xs));
-  border: var(--clr-element-border);
-  border-radius: var(--radius-sm);
-  background-color: var(--clr-surface-hover);
+  min-height: 44px;
   color: var(--color-text-muted);
-  font-size: var(--font-size-base);
   text-decoration: none;
-  transition:
-    color var(--transition-fast),
-    background-color var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.social-links a:focus-visible {
-  color: var(--color-text-inverse);
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  transition: color var(--transition-fast);
 }
 
 /* --------------------------------------------------------------------------
@@ -150,20 +106,18 @@ footer > * {
 
 .back-to-top-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: var(--spacing-sm);
 }
 
 .back-to-top-wrapper a {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
+  min-height: 44px;
   color: var(--color-text-muted);
   text-decoration: none;
   transition: color var(--transition-fast);
-}
-
-.back-to-top-wrapper a:focus-visible {
-  color: var(--color-primary);
 }
 
 /* --------------------------------------------------------------------------
@@ -171,7 +125,6 @@ footer > * {
    -------------------------------------------------------------------------- */
 
 .footer-bottom {
-  border-top: 1px solid var(--color-border);
   padding-block: var(--spacing-md);
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
@@ -185,22 +138,38 @@ footer > * {
   text-align: center;
 }
 
+.legal-info p,
 .company-details {
-  margin-top: var(--space-2xs);
+  margin: 0;
+  text-align: inherit;
 }
 
 .legal-links {
   display: flex;
-  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: var(--spacing-md);
 }
 
 .legal-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--color-text-muted);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
+/* --------------------------------------------------------------------------
+   FOCUS (ungated: keyboard and assistive tech, not touch)
+   -------------------------------------------------------------------------- */
+
+.footer-logo:focus-visible,
+.footer-links a:focus-visible,
+.back-to-top-wrapper a:focus-visible,
 .legal-links a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
   color: var(--color-text);
 }
 
@@ -209,24 +178,11 @@ footer > * {
    leave it visually stuck in its hover state)
 ------------------------------ */
 @media (hover: hover) and (pointer: fine) {
-  .footer-links a:hover {
-    color: var(--color-primary);
-    transform: translateX(3px);
-  }
-
-  .social-links a:hover {
-    color: var(--color-text-inverse);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
-  }
-
-  .back-to-top-wrapper a:hover {
-    color: var(--color-primary);
-  }
-
+  .footer-links a:hover,
+  .back-to-top-wrapper a:hover,
   .legal-links a:hover {
     color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 }

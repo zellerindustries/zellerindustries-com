@@ -6,7 +6,9 @@
 - [x] Replace `mailto:info@zellerindustries.com` CTAs site-wide with links to
       `/form`, keeping the address as plain informational text where it's a
       legal/GDPR contact-channel disclosure, not a marketing CTA.
-- [x] Add one dedicated page per service under `src/pages/servizi/`
-      (sviluppo-software, consulenza, manutenzione-assistenza, ricerca-sviluppo),
-      linked from the homepage service cards, and add them to `sitemap.xml`.
+- [x] Add one dedicated page per service under `src/pages/services/`
+      (software-development, consulting, maintenance-and-support,
+      research-and-development), linked from the homepage service cards, and add
+      them to `sitemap.xml`.
+- [x] Site redesign (feature/redesign): tokens, type, buttons, cards, header/footer, home, services, work, about, contact, form
 - [ ] Add booking

@@ -12,9 +12,9 @@
   /* Colors */
   --color-bg: #041e2f; /* Navy, not the brand book's flat #222222 — keeps the industrial/tech depth of the hero. */
   --color-bg-alt: #07304a;
-  --color-surface: #222222;
-  --color-text: #eeeeee;
-  --color-text-muted: #b0b0b0;
+  --color-surface: #0a2a40;
+  --color-text: #e0e4e8;
+  --color-text-muted: #a9b4be;
   /* Text drawn on top of primary/accent fills — stays white in every color-scheme branch. */
   --color-text-inverse: #ffffff;
   --color-primary: #cc6600;
@@ -25,19 +25,21 @@
   --color-overlay: rgba(0, 0, 0, 0.5);
   --color-success: #388e3c;
   --color-error: #d32f2f;
-  --color-focus: #ff8533;
+  --color-focus: #7bd7fe;
 
   /* Fonts */
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Orbitron', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: max(0.875rem, calc(var(--font-size-base) / var(--ratio)));
-  --font-size-base: clamp(0.95rem, 0.9rem + 0.4vw, 1.1rem);
+  --font-size-base: 1.125rem;
+  --font-size-md: 1.25rem;
   --font-size-lg: calc(var(--font-size-base) * var(--ratio));
   --font-size-xl: calc(var(--font-size-base) * var(--ratio) * var(--ratio));
   --font-size-xxl: calc(var(--font-size-base) * var(--ratio) * var(--ratio) * var(--ratio));
   --font-weight-regular: 400;
   --font-weight-medium: 500;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --line-height-base: 1.6;
   --line-height-heading: 1.2;
@@ -75,8 +77,16 @@
   /* Darker than --color-primary specifically for white-text CTA button fills —
      --color-primary itself fails WCAG AA (3.84:1) with white text at these sizes. */
   --clr-primary-light: #ff8533;
-  --clr-primary-cta: #b85c00;
-  --clr-surface-hover: #2a2a2a;
+  --clr-primary-cta: #a65200;
+  --clr-primary-cta-hover: #9c4e00;
+  /* Orange, link and hairline tokens for text and borders on the navy surfaces. */
+  --clr-primary-text: #e0a878;
+  --clr-link: #8ccdee;
+  --clr-line: #6b7b89;
+  --clr-surface-hover: #123a54;
+  /* Small-text colours for form messages; --color-error and --color-success stay for fills. */
+  --clr-error-text: #ff8a80;
+  --clr-success-text: #81c784;
 
   --clr-element-border: 1px solid var(--color-border);
 

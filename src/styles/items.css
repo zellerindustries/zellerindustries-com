@@ -1,0 +1,59 @@
+/* ==========================================================================
+   ZELLER INDUSTRIES — Items
+   Plain content items (services, reusable bases, recent works): text on the
+   page background, no card. A card is only for the hero process panel.
+   ========================================================================== */
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  min-width: 0;
+}
+
+/* Global p centres and uses auto margins; items read left-aligned. */
+.item > p {
+  text-align: start;
+  margin: 0;
+}
+
+.item-text {
+  font-size: 1rem;
+}
+
+.item :is(h2, h3) {
+  overflow-wrap: break-word;
+}
+
+/* Title links stay underlined (not colour alone) and keep the heading colour. */
+.item :is(h2, h3) a {
+  color: var(--color-text);
+  text-decoration-color: var(--clr-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.item :is(h2, h3) a:focus-visible {
+  outline-color: var(--color-focus);
+}
+
+/* Fixed proportions come from the width/height attributes, so nothing shifts while loading. */
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Tertiary links sit in flex columns (item, section): keep them as wide as their text. */
+.item .link,
+.section-inner > .link {
+  align-self: flex-start;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .item :is(h2, h3) a:hover {
+    text-decoration-color: var(--clr-primary-text);
+  }
+}

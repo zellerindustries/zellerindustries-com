@@ -26,8 +26,11 @@ src/
 ├── pages/            # one HTML file/folder per route
 │   ├── index.html          → /
 │   ├── contact.html        → /contact
-│   ├── linkinbio.html      → /linkinbio
-│   ├── form.html           → /form (in progress)
+│   ├── services/            → /services, /services/<service>
+│   ├── work/                → /work
+│   ├── about/               → /about
+│   ├── linkinbio/           → /linkinbio
+│   ├── form.html           → /form
 │   ├── legal/               → /legal/{privacy,terms,cookie}
 │   └── referral/             → /referral, /referral/terms
 ├── styles/           # modular CSS, bundled via src/style.css's @import chain

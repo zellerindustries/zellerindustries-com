@@ -2,46 +2,37 @@
    ZELLER INDUSTRIES — Cards Module
    ========================================================================== */
 
+/* Flat panel: the surface fill is the only separator (no border, no shadow,
+   no hover lift). Nothing on a card changes state, so it has no transition. */
 .card {
   background: var(--color-surface);
-  border: var(--clr-element-border);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
 
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
-
-  will-change: transform, border-color, box-shadow;
-  transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    background-color var(--transition-fast);
 }
 
-/* Hover-only lift is gated behind (hover: hover) so tapping a card on a
-   touch device doesn't leave it visually stuck in its hover state. */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-primary);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+/* High-contrast preference: the surface fill alone is not a boundary, so draw one. */
+@media (prefers-contrast: more) {
+  .card {
+    border: 2px solid var(--clr-line);
   }
 }
 
-.card .card-info,
-.card .card-content {
-  width: 100%;
-  padding: var(--spacing-xs);
-  flex: 1;
+/* Forced-colors mode drops the fill, so give the panel a boundary that can show. */
+@media (forced-colors: active) {
+  .card {
+    border: 1px solid CanvasText;
+  }
 }
 
 .card h3,
 .card .card-title {
   font-family: var(--font-secondary);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
 }
 
@@ -60,8 +51,6 @@
   object-fit: contain;
   display: block;
   border-radius: var(--radius-sm);
-  will-change: transform;
-  transition: transform var(--transition-fast);
 }
 
 .card .card-header {
@@ -93,8 +82,4 @@
 
 .card ul li:last-child {
   margin-bottom: 0;
-}
-
-.card-footer {
-  width: 100%;
 }

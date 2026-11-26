@@ -30,24 +30,34 @@
   padding: 0;
 }
 
+/* Sentence case, medium weight: the same type treatment as the buttons. */
 #main-nav a {
-  font-size: var(--font-size-sm);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: var(--font-weight-bold);
   transition: color var(--transition-fast);
 }
 
-/* Contact Us Button */
-#main-nav a.btn.cta {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px; /* Pill shape */
-  border: 1px solid var(--color-primary-hover);
-  transition: background-color var(--transition-fast);
+/* Plain nav links: a 44px touch target that fits inside the 48px logo row. */
+#main-nav li > a:not(.btn) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Current page: text colour and an underline, so it is not colour alone.
+   The Contatti item is a standard .btn.secondary and keeps its own look. */
+#main-nav a[aria-current='page']:not(.btn) {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+#main-nav a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 /* ------------------------------
@@ -65,7 +75,11 @@
   width: auto;
   display: block;
   object-fit: contain;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#brand:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 /* ------------------------------
@@ -89,24 +103,48 @@
 }
 
 /* ------------------------------
-   HOVER (mouse-only — gated so tapping the logo/nav on a touch device
+   MOBILE MENU (keyboard access)
+   The checkbox stays in the tab order, visually hidden, and its focus is drawn
+   on the label. The closed menu is hidden from the tab order and from
+   assistive tech; the open and closed layout lives in responsive.css.
+------------------------------ */
+@media (max-width: 768px) {
+  #nav-toggle {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  #nav-toggle:focus-visible ~ #nav-toggle-label {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  #main-nav {
+    visibility: hidden;
+  }
+
+  #nav-toggle:checked ~ #main-nav {
+    visibility: visible;
+  }
+}
+
+/* ------------------------------
+   HOVER (mouse-only — gated so tapping the nav on a touch device
    doesn't leave it visually stuck in its hover state)
 ------------------------------ */
 @media (hover: hover) and (pointer: fine) {
   #main-nav a:not(.btn):hover {
-    color: var(--color-primary);
-  }
-
-  #main-nav a.btn.cta:hover {
-    background-color: var(--color-primary-hover);
-    color: var(--color-text-inverse);
-  }
-
-  #brand:hover img {
-    transform: scale(1.04);
+    color: var(--clr-primary-text);
+    text-decoration: underline;
+    text-underline-offset: 6px;
   }
 
   #nav-toggle-label:hover {
-    color: var(--color-primary);
+    color: var(--clr-primary-text);
   }
 }

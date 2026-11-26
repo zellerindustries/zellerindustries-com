@@ -47,164 +47,118 @@
           <img src="/assets/logo.webp" alt="" width="127" height="148" />
         </a>
 
-        <!-- Pure CSS Mobile Toggle -->
-        <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation" />
+        <!-- Pure CSS Mobile Toggle using Bootstrap Icons -->
+        <input type="checkbox" id="nav-toggle" aria-label="Apri o chiudi il menu di navigazione" />
         <label for="nav-toggle" id="nav-toggle-label">
-          <i class="icon burger" id="icon-open"></i>
-          <i class="icon x-lg" id="icon-close"></i>
+          <i class="icon burger" id="icon-open" aria-hidden="true"></i>
+          <i class="icon x-lg" id="icon-close" aria-hidden="true"></i>
         </label>
 
         <!-- Navigation Links -->
         <nav id="main-nav" aria-label="Navigazione principale">
           <ul class="reset">
-            <li><a href="/#hero">Home</a></li>
-            <li><a href="/#services-section">Servizi</a></li>
-            <li><a href="/#portfolio-section">Portfolio</a></li>
-            <li><a href="/contact" class="btn cta">Contatti</a></li>
+            <li><a href="/services">Servizi</a></li>
+            <li><a href="/work">Lavori</a></li>
+            <li><a href="/about">Azienda</a></li>
+            <li><a href="/contact" class="btn secondary" aria-current="page">Contatti</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main>
-      <!-- HERO CONTATTI (Layout identico alla Home) -->
-      <section id="hero">
+      <section id="hero" aria-labelledby="hero-title">
         <div class="hero-container">
-          <!-- Colonna Sinistra -->
           <div class="hero-content">
-            <h1>
-              <span id="title-zeller">PARLIAMO DEL</span>
-              <span id="title-industries">TUO PROGETTO</span>
-            </h1>
-
-            <p id="hero-tagline">
-              Hai bisogno di sviluppare un software su misura, richiedere una consulenza tecnica o
-              esplorare una collaborazione? Puoi contattarci direttamente su Email e WhatsApp o
-              seguire le nostre attività sui canali ufficiali.
+            <p class="eyebrow">Contatti</p>
+            <h1 id="hero-title">Parliamo del tuo progetto</h1>
+            <p class="lead">
+              Hai bisogno di un software su misura, di una consulenza tecnica o vuoi esplorare una
+              collaborazione? Scrivici su WhatsApp o via email, oppure raccontaci il progetto con il
+              modulo.
             </p>
-
-            <div class="btn-container">
-              <a href="/form" class="btn primary cta" aria-label="Vai al modulo di contatto">
-                <i class="icon send-fill text-light" aria-hidden="true"></i>
-                <span>Compila il modulo</span>
-              </a>
-              <a
-                href="https://wa.me/393513878958"
-                class="btn secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contatta Zeller Industries su WhatsApp"
-              >
-                <i class="icon whatsapp" aria-hidden="true"></i>
-                <span>Scrivici su WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Colonna Destra: Griglia Metriche / Canali Diretti -->
-          <div class="hero-grid-metrics">
-            <div class="card">
-              <div class="card-header">
-                <div class="tile base">
-                  <i class="icon envelope-fill" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="card-info">
-                <p class="card-title">Email Diretta</p>
-                <p>info@_DOMAIN_</p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <div class="tile base">
-                  <i class="icon whatsapp" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="card-info">
-                <p class="card-title">WhatsApp Business</p>
-                <p>+39 351 387 8958</p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <div class="tile base">
-                  <i class="icon geo-alt-fill" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="card-info">
-                <p class="card-title">Sede & Legal</p>
-                <p>P.IVA IT03209750649 &bull; Italia</p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <div class="tile base">
-                  <i class="icon clock-fill" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="card-info">
-                <p class="card-title">Tempo di Risposta</p>
-                <p>Entro 24 ore lavorative</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- SOCIAL SECTION (Stesso blocco e stile della Home) -->
+      <section id="contact-methods" aria-labelledby="methods-title">
+        <div class="section-inner section-closing">
+          <h2 id="methods-title">Scrivici direttamente</h2>
+          <a
+            href="https://wa.me/393513878958"
+            class="btn secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="icon whatsapp" aria-hidden="true"></i>
+            <span
+              >Scrivici su WhatsApp<span class="sr-only"> (si apre in una nuova scheda)</span></span
+            >
+          </a>
+          <p>Oppure scrivi a info@_DOMAIN_. Rispondiamo entro 24 ore lavorative.</p>
+        </div>
+      </section>
+
       <section id="socials-section" aria-labelledby="socials-title">
-        <h2 id="socials-title">Social &amp; Canali Ufficiali</h2>
-        <nav aria-label="Social e canali ufficiali">
-          <ul id="socials-links" class="reset list">
-            <li>
-              <a
-                href="https://www.linkedin.com/company/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
-                <i class="icon linkedin tile primary" aria-hidden="true"></i>
-                <span>LinkedIn</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
-                <i class="icon github tile primary" aria-hidden="true"></i>
-                <span>GitHub</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/zellerindustries_"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
-                <i class="icon instagram tile primary" aria-hidden="true"></i>
-                <span>Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
-                <i class="icon facebook tile primary" aria-hidden="true"></i>
-                <span>Facebook</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="section-inner section-closing">
+          <h2 id="socials-title">Seguici sui canali ufficiali</h2>
+          <nav aria-label="Social e canali ufficiali">
+            <ul id="socials-links" class="reset btn-container">
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/zellerindustries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="icon linkedin tile primary" aria-hidden="true"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/zellerindustries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="icon github tile primary" aria-hidden="true"></i>
+                  <span>GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/zellerindustries_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="icon instagram tile primary" aria-hidden="true"></i>
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/zellerindustries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="icon facebook tile primary" aria-hidden="true"></i>
+                  <span>Facebook</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+      <section id="contact-cta" aria-labelledby="cta-title">
+        <div class="section-inner section-closing">
+          <h2 id="cta-title">Raccontaci il tuo progetto</h2>
+          <p>Il primo colloquio e l'audit sono gratuiti. Ti rispondiamo entro 24 ore lavorative.</p>
+          <a href="/form" class="btn primary cta">Richiedi un audit gratuito</a>
+        </div>
       </section>
     </main>
 
@@ -218,77 +172,79 @@
               <span class="logo-zeller">ZELLER</span>
               <span class="logo-industries">INDUSTRIES</span>
             </a>
-            <p class="footer-desc">
-              Boutique di Software Engineering, sviluppo di web application ad alte prestazioni e
-              ricerca tecnologica.
-            </p>
+            <p class="footer-desc">Immagina. Sviluppa. Pubblica.</p>
+            <p class="company-details">P.IVA IT03209750649</p>
           </div>
 
-          <!-- Quick Links -->
+          <!-- Servizi -->
           <div class="footer-col">
-            <h2 class="footer-title">Navigazione</h2>
+            <h2 class="footer-title">Servizi</h2>
             <ul class="footer-links">
-              <li><a href="/#hero">Home</a></li>
-              <li><a href="/#services-section">Servizi</a></li>
-              <li><a href="/#portfolio-section">Portfolio</a></li>
+              <li><a href="/services/software-development">Sviluppo software</a></li>
+              <li><a href="/services/consulting">Consulenza IT</a></li>
+              <li><a href="/services/maintenance-and-support">Manutenzione e assistenza</a></li>
+              <li><a href="/services/research-and-development">Ricerca e sviluppo</a></li>
+              <li><a href="/services/training">Formazione</a></li>
+              <li><a href="/services/automation">Automazione</a></li>
+              <li><a href="/services/creator-support">Supporto ai creator</a></li>
+            </ul>
+          </div>
+
+          <!-- Azienda -->
+          <div class="footer-col">
+            <h2 class="footer-title">Azienda</h2>
+            <ul class="footer-links">
+              <li><a href="/work">Lavori</a></li>
+              <li><a href="/about">Azienda</a></li>
+              <li><a href="/contact">Contatti</a></li>
+              <li><a href="https://store._DOMAIN_" rel="noopener noreferrer">Store</a></li>
+            </ul>
+          </div>
+
+          <!-- Seguici -->
+          <div class="footer-col">
+            <h2 class="footer-title">Seguici</h2>
+            <ul class="footer-links">
               <li>
-                <a href="https://store._DOMAIN_" target="_blank" rel="noopener noreferrer"
-                  >Store Ufficiale</a
+                <a
+                  href="https://www.linkedin.com/company/zellerindustries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
                 >
               </li>
-              <li><a href="/contact">Contatti</a></li>
+              <li>
+                <a
+                  href="https://github.com/zellerindustries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/zellerindustries_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/zellerindustries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Facebook</a
+                >
+              </li>
+              <li>
+                <a href="https://wa.me/393513878958" target="_blank" rel="noopener noreferrer"
+                  >WhatsApp</a
+                >
+              </li>
             </ul>
-          </div>
-
-          <!-- Servizi / Core Business -->
-          <div class="footer-col">
-            <h2 class="footer-title">Competenze</h2>
-            <ul class="footer-links">
-              <li><a href="/#services-section">Software Custom</a></li>
-              <li><a href="/#services-section">Web &amp; Mobile App</a></li>
-              <li><a href="/#services-section">Architetture Cloud</a></li>
-              <li><a href="/#services-section">Consulenza R&amp;D</a></li>
-            </ul>
-          </div>
-
-          <!-- Social & Legal -->
-          <div class="footer-col">
-            <h2 class="footer-title">Connettiti</h2>
-            <div class="social-links">
-              <a
-                href="https://github.com/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub di Zeller Industries"
-              >
-                <i class="icon github" aria-hidden="true"></i>
-                <span class="sr-only">GitHub</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn di Zeller Industries"
-              >
-                <i class="icon linkedin" aria-hidden="true"></i>
-                <span class="sr-only">LinkedIn</span>
-              </a>
-              <a
-                href="https://wa.me/393513878958"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contatto WhatsApp"
-              >
-                <i class="icon whatsapp" aria-hidden="true"></i>
-                <span class="sr-only">WhatsApp</span>
-              </a>
-              <a href="/form" aria-label="Vai al modulo di contatto">
-                <i class="icon send-fill" aria-hidden="true"></i>
-                <span class="sr-only">Modulo di Contatto</span>
-              </a>
-            </div>
             <div class="back-to-top-wrapper">
-              <a href="#hero" aria-label="Torna all'inizio della pagina">
+              <a href="#site-header" aria-label="Torna all'inizio della pagina">
                 <i class="icon arrow-up" aria-hidden="true"></i>
                 <span>Torna su</span>
               </a>
@@ -302,35 +258,33 @@
         <div class="footer-container">
           <div class="legal-info">
             <p>&copy; 2026 Zeller Industries. Tutti i diritti riservati.</p>
-            <p class="company-details">
-              <span>P.IVA: IT03209750649</span> &bull;
-              <span>Italia</span>
-            </p>
+            <p class="company-details">P.IVA: IT03209750649</p>
           </div>
-          <div class="legal-links">
-            <a href="/legal/privacy">Informativa sulla Riservatezza</a>
-            <a href="/legal/cookie">Informativa sui Cookie</a>
-            <a href="/legal/terms">Termini e Condizioni</a>
-          </div>
+          <nav class="legal-links" aria-label="Informazioni legali">
+            <a href="/legal/privacy">Privacy</a>
+            <a href="/legal/terms">Termini</a>
+            <a href="/legal/cookie">Cookie</a>
+            <a href="/referral">Referral</a>
+          </nav>
         </div>
       </div>
     </footer>
 
-    <!-- BOTTOM BAR FLOATING MOBILE -->
+    <!-- BOTTOM BAR FLOATING -->
     <nav id="bottom-bar" aria-label="Navigazione rapida mobile">
       <div class="bottom-bar-container">
         <a href="/" class="btn">
-          <i class="icon house-fill"></i>
+          <i class="icon house-fill" aria-hidden="true"></i>
           <span>Home</span>
         </a>
 
-        <a href="https://store._DOMAIN_" target="_blank" rel="noopener noreferrer" class="btn">
-          <i class="icon cart"></i>
-          <span>Store</span>
+        <a href="/services" class="btn">
+          <i class="icon tools" aria-hidden="true"></i>
+          <span>Servizi</span>
         </a>
 
         <a href="/contact" class="btn" aria-current="page">
-          <i class="icon envelope-fill"></i>
+          <i class="icon envelope-fill" aria-hidden="true"></i>
           <span>Contatti</span>
         </a>
       </div>

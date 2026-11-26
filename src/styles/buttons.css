@@ -4,71 +4,71 @@
 
 /* ------------------------------
    BUTTON BASE
+   One height, one border width and one type treatment for every variant.
 ------------------------------ */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-xs);
-  padding: var(--spacing-sm);
+  min-height: 48px;
+  padding: var(--spacing-xs) var(--spacing-md);
 
   font-family: var(--font-primary);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
   line-height: 1.2;
   color: var(--color-text);
 
   background-color: var(--color-surface);
-  border: var(--clr-element-border);
+  border: 1px solid var(--clr-line);
   border-radius: var(--radius-sm);
 
   cursor: pointer;
   text-decoration: none;
   user-select: none;
 
-  will-change: transform, box-shadow, background-color;
-
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast),
     color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+    transform var(--transition-fast);
 }
 
+/* The label wraps inside the button; it never grows, so the icon stays next to it. */
 .btn span {
-  flex: 1;
   text-align: center;
-  padding: var(--spacing-xs);
+  text-wrap: balance;
 }
 
 .btn .icon {
   display: inline-flex;
+  flex: none;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-lg);
-  color: var(--color-primary);
+  font-size: 1.25em;
+  line-height: 1;
+  color: var(--clr-primary-text);
 
-  transition:
-    color var(--transition-fast),
-    transform var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 /* ------------------------------
    BASE INTERACTION STATES
 ------------------------------ */
 .btn:not([aria-disabled='true']):active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
 }
 
-.btn:focus-visible {
-  outline: 2px solid var(--color-primary);
+.btn:focus-visible,
+.link:focus-visible {
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
 /* ------------------------------
    ARIA DISABLED
+   Stays focusable; the hover and active rules below skip it.
 ------------------------------ */
 .btn[aria-disabled='true'] {
   cursor: default;
@@ -76,17 +76,9 @@
   opacity: 0.6;
 }
 
-.btn[aria-disabled='true']:hover,
-.btn[aria-disabled='true']:active {
-  background-color: var(--color-surface);
-  border-color: transparent;
-  color: var(--color-text);
-  transform: none;
-  box-shadow: none;
-}
-
 /* ------------------------------
-   PRIMARY BUTTON (ORANGE)
+   PRIMARY BUTTON (FILLED)
+   Not for use on a --color-surface card: the fill is only 2.70:1 against it.
 ------------------------------ */
 .btn.primary {
   background-color: var(--clr-primary-cta);
@@ -99,25 +91,42 @@
 }
 
 /* ------------------------------
-   SECONDARY BUTTON (NEUTRAL OUTLINE)
+   SECONDARY BUTTON (OUTLINE)
 ------------------------------ */
 .btn.secondary {
   background-color: transparent;
-  border-color: currentColor;
+  border-color: var(--clr-line);
   color: var(--color-text);
 }
 
 /* ------------------------------
-   CTA MODIFIER (ORBITRON / HIGH TECH)
+   CTA MODIFIER (sentence case, full width only on narrow screens)
 ------------------------------ */
 .btn.cta {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  width: 100%;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
-.btn.cta .icon {
-  font-size: var(--font-size-lg);
+/* ------------------------------
+   TERTIARY LINK
+------------------------------ */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-height: 44px;
+
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  color: var(--clr-link);
+
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  transition: color var(--transition-fast);
 }
 
 /* ------------------------------
@@ -133,33 +142,45 @@
 }
 
 /* ------------------------------
+   NARROW SCREENS
+------------------------------ */
+@media (max-width: 768px) {
+  .btn.cta {
+    width: 100%;
+  }
+}
+
+/* ------------------------------
+   REDUCED MOTION
+------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn .icon,
+  .link {
+    transition-duration: 0.01ms;
+  }
+
+  .btn:not([aria-disabled='true']):active {
+    transform: none;
+  }
+}
+
+/* ------------------------------
    HOVER (mouse-only — gated so tapping a button on a touch device doesn't
-   leave it visually stuck in its hover state)
+   leave it visually stuck in its hover state). A tone shift of the same hue.
 ------------------------------ */
 @media (hover: hover) and (pointer: fine) {
   .btn:not([aria-disabled='true']):hover {
     background-color: var(--clr-surface-hover);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: var(--color-text-inverse);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-text-muted);
   }
 
   .btn.primary:not([aria-disabled='true']):hover {
-    background-color: var(--color-primary-hover);
-    border-color: var(--color-primary-hover);
-    color: var(--color-text-inverse);
-    box-shadow: 0 4px 16px rgba(204, 102, 0, 0.35);
+    background-color: var(--clr-primary-cta-hover);
+    border-color: var(--clr-primary-cta-hover);
   }
 
-  .btn.secondary:not([aria-disabled='true']):hover {
-    background-color: transparent;
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    box-shadow: none;
-  }
-
-  .btn.cta:not([aria-disabled='true']):hover .icon {
-    transform: translateX(3px);
+  .link:hover {
+    color: var(--color-text);
   }
 }
