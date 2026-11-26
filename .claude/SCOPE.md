@@ -4,4 +4,4 @@ Marketing/landing site for Zeller Industries (zellerindustries.com), static Ital
 
 - **In scope:** this repository only.
 - **Built with:** @minimaz/sitekit static site, one TypeScript contact-form handler.
-- **Skills (`.claude/skills/`):** webdesign-guidelines.
+- **Skills (`.claude/skills/`):** webdesign-guidelines (shared; relative symlink to `developing-projects/websites/.claude/skills/`, gitignored).

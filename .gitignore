@@ -7,6 +7,7 @@ node_modules/
 
 .claude/superpowers/
 .claude/worktrees/
+.claude/skills/webdesign-guidelines
 
 .DS_Store
 Thumbs.db
