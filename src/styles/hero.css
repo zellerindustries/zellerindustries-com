@@ -34,6 +34,7 @@
 #title-zeller,
 #title-industries {
   display: block;
+  font-family: var(--font-logo);
   color: var(--color-text);
 }
 
@@ -67,7 +68,6 @@
 .hero-process .card-title {
   text-align: start;
   margin: 0;
-  letter-spacing: 0.05em;
 }
 
 .hero-process ol {

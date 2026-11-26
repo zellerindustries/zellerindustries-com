@@ -24,7 +24,8 @@
     "Desh",
     "Battafarano",
     "dostone",
-    "yamastavernagreca"
+    "yamastavernagreca",
+    "linkinbio"
   ],
   "ignoreRegExpList": [
     "href\\s*=\\s*\"[^\"]*\"",

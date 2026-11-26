@@ -8,7 +8,9 @@
       "public": ""
     },
     "externals": {
-      "./node_modules/bootstrap-icons/font/fonts": "fonts"
+      "./node_modules/bootstrap-icons/font/fonts": "fonts",
+      "./node_modules/@fontsource-variable/oxanium/files/oxanium-latin-wght-normal.woff2": "fonts/oxanium-latin-wght-normal.woff2",
+      "./node_modules/@fontsource-variable/oxanium/files/oxanium-latin-ext-wght-normal.woff2": "fonts/oxanium-latin-ext-wght-normal.woff2"
     }
   },
   "output": {
@@ -16,7 +18,17 @@
     "replace": {
       "../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": "/fonts/bootstrap-icons.woff2",
       "../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": "/fonts/bootstrap-icons.woff",
-      "_DOMAIN_": "zellerindustries.com"
+      "__STORE_URL__": "https://store.zellerindustries.com",
+      "__SITE_URL__": "https://zellerindustries.com",
+      "__SITE_DOMAIN__": "zellerindustries.com",
+      "__EMAIL__": "info@zellerindustries.com",
+      "__WHATSAPP_URL__": "https://wa.me/393513878958",
+      "__LINKEDIN_URL__": "https://www.linkedin.com/company/zellerindustries",
+      "__GITHUB_URL__": "https://github.com/zellerindustries",
+      "__INSTAGRAM_URL__": "https://www.instagram.com/zellerindustries_",
+      "__FACEBOOK_URL__": "https://www.facebook.com/zellerindustries",
+      "__VAT__": "IT03209750649",
+      "__ROBOTS__": "noindex, nofollow"
     },
     "css": {
       "bundling": true,

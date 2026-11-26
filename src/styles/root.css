@@ -29,7 +29,8 @@
 
   /* Fonts */
   --font-primary: 'Roboto', sans-serif;
-  --font-secondary: 'Orbitron', sans-serif;
+  --font-secondary: 'Oxanium', system-ui, 'Segoe UI', sans-serif;
+  --font-logo: 'Orbitron', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: max(0.875rem, calc(var(--font-size-base) / var(--ratio)));
   --font-size-base: 1.125rem;
