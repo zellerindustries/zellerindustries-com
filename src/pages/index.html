@@ -14,14 +14,14 @@
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
-    <meta name="googlebot" content="index, follow" />
+    <meta name="googlebot" content="__ROBOTS__" />
     <meta name="author" content="Zeller Industries" />
     <meta name="copyright" content="© 2026 Zeller Industries" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#cc6600" />
 
     <!-- Hreflang (anche se ora è solo IT, serve come base) -->
-    <link rel="alternate" hreflang="it" href="https://_DOMAIN_/" />
+    <link rel="alternate" hreflang="it" href="__SITE_URL__/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -33,10 +33,10 @@
       property="og:description"
       content="Software riutilizzabile adattato al tuo caso e sviluppo su misura: sviluppo software, consulenza IT, manutenzione, formazione e automazione. Primo audit gratuito."
     />
-    <meta property="og:url" content="https://_DOMAIN_/" />
+    <meta property="og:url" content="__SITE_URL__/" />
     <meta property="og:site_name" content="Zeller Industries" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:image" content="https://_DOMAIN_/assets/og-cover.webp" />
+    <meta property="og:image" content="__SITE_URL__/assets/og-cover.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Zeller Industries – Software e Innovazione Digitale" />
@@ -51,12 +51,12 @@
       name="twitter:description"
       content="Software riutilizzabile adattato al tuo caso e sviluppo su misura: sviluppo software, consulenza IT, manutenzione, formazione e automazione. Primo audit gratuito."
     />
-    <meta name="twitter:image" content="https://_DOMAIN_/assets/og-cover.webp" />
+    <meta name="twitter:image" content="__SITE_URL__/assets/og-cover.webp" />
 
     <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" href="https://_DOMAIN_/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" href="__SITE_URL__/sitemap.xml" />
 
-    <link rel="canonical" href="https://_DOMAIN_/" />
+    <link rel="canonical" href="__SITE_URL__/" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- CSS -->
@@ -68,163 +68,163 @@
         "@graph": [
           {
             "@type": "Organization",
-            "@id": "https://_DOMAIN_/#organization",
+            "@id": "__SITE_URL__/#organization",
             "name": "Zeller Industries",
-            "url": "https://_DOMAIN_/",
+            "url": "__SITE_URL__/",
             "logo": {
               "@type": "ImageObject",
-              "@id": "https://_DOMAIN_/#logo",
-              "url": "https://_DOMAIN_/assets/logo.webp",
+              "@id": "__SITE_URL__/#logo",
+              "url": "__SITE_URL__/assets/logo.webp",
               "width": 512,
               "height": 512
             },
             "description": "Software riutilizzabile adattato al tuo caso e sviluppo su misura: sviluppo software, consulenza IT, manutenzione, formazione e automazione.",
             "sameAs": [
-              "https://www.linkedin.com/company/zellerindustries",
-              "https://github.com/zellerindustries",
-              "https://www.instagram.com/zellerindustries_",
-              "https://www.facebook.com/zellerindustries"
+              "__LINKEDIN_URL__",
+              "__GITHUB_URL__",
+              "__INSTAGRAM_URL__",
+              "__FACEBOOK_URL__"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer support",
-              "email": "info@_DOMAIN_",
+              "email": "__EMAIL__",
               "availableLanguage": ["it"]
             }
           },
           {
             "@type": "WebSite",
-            "@id": "https://_DOMAIN_/#website",
-            "url": "https://_DOMAIN_/",
+            "@id": "__SITE_URL__/#website",
+            "url": "__SITE_URL__/",
             "name": "Zeller Industries",
             "publisher": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "inLanguage": "it-IT"
           },
           {
             "@type": "WebPage",
-            "@id": "https://_DOMAIN_/#homepage",
-            "url": "https://_DOMAIN_/",
+            "@id": "__SITE_URL__/#homepage",
+            "url": "__SITE_URL__/",
             "name": "Zeller Industries – Software riutilizzabile e consulenza su misura",
             "isPartOf": {
-              "@id": "https://_DOMAIN_/#website"
+              "@id": "__SITE_URL__/#website"
             },
             "about": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "hasPart": {
-              "@id": "https://_DOMAIN_/#services"
+              "@id": "__SITE_URL__/#services"
             },
             "publisher": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "description": "Software riutilizzabile adattato al tuo caso e sviluppo su misura: sviluppo software, consulenza IT, manutenzione, formazione e automazione.",
             "inLanguage": "it-IT"
           },
           {
             "@type": "OfferCatalog",
-            "@id": "https://_DOMAIN_/#services",
+            "@id": "__SITE_URL__/#services",
             "name": "Catalogo Servizi Zeller Industries",
             "provider": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "itemListElement": [
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#software-development",
-                "url": "https://_DOMAIN_/services/software-development",
+                "@id": "__SITE_URL__/#software-development",
+                "url": "__SITE_URL__/services/software-development",
                 "name": "Sviluppo software",
                 "description": "Web application, app mobile, gestionali e automazioni pensate per come lavora davvero la tua azienda.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "Software Development",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               },
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#consulting",
-                "url": "https://_DOMAIN_/services/consulting",
+                "@id": "__SITE_URL__/#consulting",
+                "url": "__SITE_URL__/services/consulting",
                 "name": "Consulenza IT",
                 "description": "Strategia IT, analisi dei processi e formazione, per scegliere gli strumenti giusti prima di investirci.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "IT Consulting",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               },
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#maintenance-and-support",
-                "url": "https://_DOMAIN_/services/maintenance-and-support",
+                "@id": "__SITE_URL__/#maintenance-and-support",
+                "url": "__SITE_URL__/services/maintenance-and-support",
                 "name": "Manutenzione e assistenza",
                 "description": "Monitoraggio, aggiornamenti e sicurezza continui, perché il software funzioni anche dopo un anno.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "IT Maintenance & Support",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               },
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#research-and-development",
-                "url": "https://_DOMAIN_/services/research-and-development",
+                "@id": "__SITE_URL__/#research-and-development",
+                "url": "__SITE_URL__/services/research-and-development",
                 "name": "Ricerca e sviluppo",
                 "description": "Prototipi e proof of concept per verificare se un'idea regge, prima di investire.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "Research & Development",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               },
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#training",
-                "url": "https://_DOMAIN_/services/training",
+                "@id": "__SITE_URL__/#training",
+                "url": "__SITE_URL__/services/training",
                 "name": "Formazione",
                 "description": "Formazione pratica su strumenti digitali, sicurezza e AI, per persone e team.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "Training",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               },
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#automation",
-                "url": "https://_DOMAIN_/services/automation",
+                "@id": "__SITE_URL__/#automation",
+                "url": "__SITE_URL__/services/automation",
                 "name": "Automazione",
                 "description": "Integrazioni, script e bot che eliminano il lavoro ripetitivo.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "Automation",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               },
               {
                 "@type": "Offer",
-                "@id": "https://_DOMAIN_/#creator-support",
-                "url": "https://_DOMAIN_/services/creator-support",
+                "@id": "__SITE_URL__/#creator-support",
+                "url": "__SITE_URL__/services/creator-support",
                 "name": "Supporto ai creator",
                 "description": "Infrastruttura e strumenti su misura, per dedicare il tempo ai contenuti.",
                 "itemOffered": {
                   "@type": "Service",
                   "serviceType": "Creator Support",
                   "provider": {
-                    "@id": "https://_DOMAIN_/#organization"
+                    "@id": "__SITE_URL__/#organization"
                   }
                 }
               }
@@ -485,7 +485,7 @@
             entro 24 ore lavorative.
           </p>
           <a href="/form" class="btn primary cta">Richiedi un audit gratuito</a>
-          <p class="closing-note">Oppure scrivici a info@_DOMAIN_</p>
+          <p class="closing-note">Oppure scrivici a __EMAIL__</p>
         </div>
       </section>
     </main>
@@ -501,7 +501,7 @@
               <span class="logo-industries">INDUSTRIES</span>
             </a>
             <p class="footer-desc">Immagina. Sviluppa. Pubblica.</p>
-            <p class="company-details">P.IVA IT03209750649</p>
+            <p class="company-details">P.IVA __VAT__</p>
           </div>
 
           <!-- Servizi -->
@@ -532,7 +532,7 @@
               <li><a href="/about">Azienda</a></li>
               <li><a href="/contact">Contatti</a></li>
               <li>
-                <a href="https://store._DOMAIN_" rel="noopener noreferrer">Store</a>
+                <a href="__STORE_URL__" rel="noopener noreferrer">Store</a>
               </li>
             </ul>
           </div>
@@ -542,41 +542,19 @@
             <h2 class="footer-title">Seguici</h2>
             <ul class="footer-links">
               <li>
-                <a
-                  href="https://www.linkedin.com/company/zellerindustries"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >LinkedIn</a
-                >
+                <a href="__LINKEDIN_URL__" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </li>
               <li>
-                <a
-                  href="https://github.com/zellerindustries"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >GitHub</a
-                >
+                <a href="__GITHUB_URL__" target="_blank" rel="noopener noreferrer">GitHub</a>
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/zellerindustries_"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Instagram</a
-                >
+                <a href="__INSTAGRAM_URL__" target="_blank" rel="noopener noreferrer">Instagram</a>
               </li>
               <li>
-                <a
-                  href="https://www.facebook.com/zellerindustries"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Facebook</a
-                >
+                <a href="__FACEBOOK_URL__" target="_blank" rel="noopener noreferrer">Facebook</a>
               </li>
               <li>
-                <a href="https://wa.me/393513878958" target="_blank" rel="noopener noreferrer"
-                  >WhatsApp</a
-                >
+                <a href="__WHATSAPP_URL__" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               </li>
             </ul>
             <div class="back-to-top-wrapper">
@@ -594,7 +572,7 @@
         <div class="footer-container">
           <div class="legal-info">
             <p>&copy; 2026 Zeller Industries. Tutti i diritti riservati.</p>
-            <p class="company-details">P.IVA: IT03209750649</p>
+            <p class="company-details">P.IVA: __VAT__</p>
           </div>
           <nav class="legal-links" aria-label="Informazioni legali">
             <a href="/legal/privacy">Privacy</a>

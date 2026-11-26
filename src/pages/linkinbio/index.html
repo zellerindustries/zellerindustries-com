@@ -14,14 +14,14 @@
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
-    <meta name="googlebot" content="index, follow" />
+    <meta name="googlebot" content="__ROBOTS__" />
     <meta name="author" content="Zeller Industries" />
     <meta name="copyright" content="© 2026 Zeller Industries" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#cc6600" />
 
     <!-- Hreflang (anche se ora è solo IT, serve come base) -->
-    <link rel="alternate" hreflang="it" href="https://_DOMAIN_/linkinbio" />
+    <link rel="alternate" hreflang="it" href="__SITE_URL__/linkinbio" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -30,10 +30,10 @@
       property="og:description"
       content="Tutti i link utili di Zeller Industries: sito, store, portfolio e contatti diretti in un unico posto."
     />
-    <meta property="og:url" content="https://_DOMAIN_/linkinbio" />
+    <meta property="og:url" content="__SITE_URL__/linkinbio" />
     <meta property="og:site_name" content="Zeller Industries" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:image" content="https://_DOMAIN_/assets/og-cover.webp" />
+    <meta property="og:image" content="__SITE_URL__/assets/og-cover.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Zeller Industries – Software e Innovazione Digitale" />
@@ -45,13 +45,13 @@
       name="twitter:description"
       content="Tutti i link utili di Zeller Industries: sito, store, portfolio e contatti diretti in un unico posto."
     />
-    <meta name="twitter:image" content="https://_DOMAIN_/assets/og-cover.webp" />
+    <meta name="twitter:image" content="__SITE_URL__/assets/og-cover.webp" />
 
     <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" href="https://_DOMAIN_/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" href="__SITE_URL__/sitemap.xml" />
 
     <!-- Performance -->
-    <link rel="canonical" href="https://_DOMAIN_/linkinbio" />
+    <link rel="canonical" href="__SITE_URL__/linkinbio" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- CSS -->
@@ -64,53 +64,53 @@
         "@graph": [
           {
             "@type": "Organization",
-            "@id": "https://_DOMAIN_/#organization",
+            "@id": "__SITE_URL__/#organization",
             "name": "Zeller Industries",
-            "url": "https://_DOMAIN_/",
+            "url": "__SITE_URL__/",
             "logo": {
               "@type": "ImageObject",
-              "@id": "https://_DOMAIN_/#logo",
-              "url": "https://_DOMAIN_/assets/logo.webp",
+              "@id": "__SITE_URL__/#logo",
+              "url": "__SITE_URL__/assets/logo.webp",
               "width": 512,
               "height": 512
             },
             "description": "Zeller Industries offre sviluppo software su misura, consulenza IT e attività di ricerca e sviluppo. Soluzioni web, mobile, automazione e sistemi digitali.",
             "sameAs": [
-              "https://www.linkedin.com/company/zellerindustries",
-              "https://github.com/zellerindustries",
-              "https://www.instagram.com/zellerindustries_",
-              "https://www.facebook.com/zellerindustries"
+              "__LINKEDIN_URL__",
+              "__GITHUB_URL__",
+              "__INSTAGRAM_URL__",
+              "__FACEBOOK_URL__"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer support",
-              "email": "info@_DOMAIN_",
+              "email": "__EMAIL__",
               "availableLanguage": ["it"]
             }
           },
           {
             "@type": "WebSite",
-            "@id": "https://_DOMAIN_/#website",
-            "url": "https://_DOMAIN_/",
+            "@id": "__SITE_URL__/#website",
+            "url": "__SITE_URL__/",
             "name": "Zeller Industries",
             "publisher": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "inLanguage": "it-IT"
           },
           {
             "@type": "ProfilePage",
-            "@id": "https://_DOMAIN_/linkinbio#webpage",
-            "url": "https://_DOMAIN_/linkinbio",
+            "@id": "__SITE_URL__/linkinbio#webpage",
+            "url": "__SITE_URL__/linkinbio",
             "name": "Zeller Industries – Link in Bio",
             "isPartOf": {
-              "@id": "https://_DOMAIN_/#website"
+              "@id": "__SITE_URL__/#website"
             },
             "about": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "publisher": {
-              "@id": "https://_DOMAIN_/#organization"
+              "@id": "__SITE_URL__/#organization"
             },
             "description": "Tutti i link utili di Zeller Industries: sito, store, portfolio e contatti diretti in un unico posto.",
             "inLanguage": "it-IT"
@@ -146,45 +146,25 @@
         <nav aria-label="Social">
           <ul id="socials-links" class="reset list">
             <li>
-              <a
-                href="https://www.linkedin.com/company/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
+              <a href="__LINKEDIN_URL__" target="_blank" rel="noopener noreferrer" class="btn">
                 <i class="icon linkedin tile primary" aria-hidden="true"></i>
                 <span>LinkedIn</span>
               </a>
             </li>
             <li>
-              <a
-                href="https://github.com/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
+              <a href="__GITHUB_URL__" target="_blank" rel="noopener noreferrer" class="btn">
                 <i class="icon github tile primary" aria-hidden="true"></i>
                 <span>GitHub</span>
               </a>
             </li>
             <li>
-              <a
-                href="https://www.instagram.com/zellerindustries_"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
+              <a href="__INSTAGRAM_URL__" target="_blank" rel="noopener noreferrer" class="btn">
                 <i class="icon instagram tile primary" aria-hidden="true"></i>
                 <span>Instagram</span>
               </a>
             </li>
             <li>
-              <a
-                href="https://www.facebook.com/zellerindustries"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
+              <a href="__FACEBOOK_URL__" target="_blank" rel="noopener noreferrer" class="btn">
                 <i class="icon facebook tile primary" aria-hidden="true"></i>
                 <span>Facebook</span>
               </a>
@@ -205,12 +185,7 @@
               </a>
             </li>
             <li>
-              <a
-                href="https://wa.me/393513878958"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn"
-              >
+              <a href="__WHATSAPP_URL__" target="_blank" rel="noopener noreferrer" class="btn">
                 <i class="icon whatsapp tile primary" aria-hidden="true"></i>
                 <span>WhatsApp</span>
               </a>
