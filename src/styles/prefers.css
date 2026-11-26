@@ -11,14 +11,14 @@
     --color-accent-hover: #0089cb;
 
     /* BACKGROUND */
-    --color-bg: #f6f7f9;
-    --color-bg-alt: #edf1f5;
-    --color-surface: #e9edf1;
-    --clr-surface-hover: #dde3e9;
+    --color-bg: #f7f5f2;
+    --color-bg-alt: #efece8;
+    --color-surface: #ebe7e2;
+    --clr-surface-hover: #e0dbd5;
 
     /* TEXT */
-    --color-text: #1c2833;
-    --color-text-muted: #4a5866;
+    --color-text: #1d1b19;
+    --color-text-muted: #55514c;
     --color-focus: #0a6fb5;
     --clr-primary-text: #9a4a00;
     --clr-link: #00598f;
@@ -72,7 +72,7 @@
     --clr-success-text: #0d3d12;
 
     --color-bg: #ffffff;
-    --color-bg-alt: #edf1f5;
+    --color-bg-alt: #f0f0f0;
 
     --clr-element-border: 2px solid var(--clr-line);
     --clr-click-border: 2px solid #3d3d3d;

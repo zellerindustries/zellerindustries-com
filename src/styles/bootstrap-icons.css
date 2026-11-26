@@ -124,3 +124,59 @@
 .icon.send-fill::before {
   content: '\F6B9';
 }
+
+.icon.laptop::before {
+  content: '\F456';
+}
+
+.icon.compass::before {
+  content: '\F2D1';
+}
+
+.icon.shield-check::before {
+  content: '\F52F';
+}
+
+.icon.rocket-takeoff::before {
+  content: '\F845';
+}
+
+.icon.mortarboard::before {
+  content: '\F6FE';
+}
+
+.icon.robot::before {
+  content: '\F6B1';
+}
+
+.icon.camera-video::before {
+  content: '\F21F';
+}
+
+.icon.box-seam::before {
+  content: '\F1C7';
+}
+
+.icon.cpu::before {
+  content: '\F2D6';
+}
+
+.icon.diagram-3::before {
+  content: '\F2EE';
+}
+
+.icon.arrow-right::before {
+  content: '\F138';
+}
+
+.icon.list-check::before {
+  content: '\F473';
+}
+
+.icon.window-stack::before {
+  content: '\F6D2';
+}
+
+.icon.boxes::before {
+  content: '\F685';
+}

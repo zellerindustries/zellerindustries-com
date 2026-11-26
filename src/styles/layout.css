@@ -48,6 +48,12 @@ main > * {
   gap: var(--spacing-lg);
 }
 
+/* Alternate sections sit one step lighter, so the page reads in bands, not one flat field. */
+main > section:nth-of-type(even) {
+  background: var(--color-bg-alt);
+  border-block: var(--clr-element-border);
+}
+
 .section-head {
   display: flex;
   flex-direction: column;
@@ -58,6 +64,17 @@ main > * {
 .section-head h2 {
   text-align: start;
   margin-bottom: 0;
+}
+
+/* Short orange bar above each section title. */
+.section-head h2::before {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-bottom: var(--spacing-xs);
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
 }
 
 .section-head p {

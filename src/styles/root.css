@@ -10,11 +10,11 @@
   color-scheme: dark;
 
   /* Colors */
-  --color-bg: #041e2f; /* Navy, not the brand book's flat #222222 — keeps the industrial/tech depth of the hero. */
-  --color-bg-alt: #07304a;
-  --color-surface: #0a2a40;
-  --color-text: #e0e4e8;
-  --color-text-muted: #a9b4be;
+  --color-bg: #0b0b0c; /* Near-black: orange is the main colour, blue is contrast only. */
+  --color-bg-alt: #111113;
+  --color-surface: #171719;
+  --color-text: #efece7;
+  --color-text-muted: #b0aca6;
   /* Text drawn on top of primary/accent fills — stays white in every color-scheme branch. */
   --color-text-inverse: #ffffff;
   --color-primary: #cc6600;
@@ -80,11 +80,14 @@
   --clr-primary-light: #ff8533;
   --clr-primary-cta: #a65200;
   --clr-primary-cta-hover: #9c4e00;
-  /* Orange, link and hairline tokens for text and borders on the navy surfaces. */
-  --clr-primary-text: #e0a878;
+  /* Orange, link and hairline tokens for text and borders on the black surfaces. */
+  /* Depth: warm glow behind the hero and raised-card edge highlight. */
+  --glow-primary: radial-gradient(60% 60% at 50% 0%, rgba(255, 133, 51, 0.16), transparent 70%);
+  --edge-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --clr-primary-text: #ff9d4d;
   --clr-link: #8ccdee;
-  --clr-line: #6b7b89;
-  --clr-surface-hover: #123a54;
+  --clr-line: #7d7a76;
+  --clr-surface-hover: #242427;
   /* Small-text colours for form messages; --color-error and --color-success stay for fills. */
   --clr-error-text: #ff8a80;
   --clr-success-text: #81c784;

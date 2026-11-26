@@ -1,7 +1,7 @@
 /* ==========================================================================
    ZELLER INDUSTRIES — Items
-   Plain content items (services, reusable bases, recent works): text on the
-   page background, no card. A card is only for the hero process panel.
+   Content items (services, reusable bases, recent works): raised panels with an
+   edge highlight and an orange icon badge. .card stays for the hero process panel.
    ========================================================================== */
 
 .item {
@@ -9,6 +9,30 @@
   flex-direction: column;
   gap: var(--spacing-xs);
   min-width: 0;
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+  border: var(--clr-element-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--edge-highlight), var(--shadow-md);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+/* Orange badge: tinted fill, orange glyph. Decorative, the heading names the item. */
+.item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.35rem;
+  color: var(--clr-primary-text);
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  border-radius: var(--radius-sm);
 }
 
 /* Global p centres and uses auto margins; items read left-aligned. */
@@ -53,6 +77,15 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow:
+      var(--edge-highlight),
+      var(--shadow-lg),
+      0 0 24px color-mix(in srgb, var(--color-primary) 22%, transparent);
+  }
+
   .item :is(h2, h3) a:hover {
     text-decoration-color: var(--clr-primary-text);
   }

@@ -2,12 +2,15 @@
    ZELLER INDUSTRIES — Cards Module
    ========================================================================== */
 
-/* Flat panel: the surface fill is the only separator (no border, no shadow,
-   no hover lift). Nothing on a card changes state, so it has no transition. */
+/* Raised panel: hairline border, orange top edge and shadow. Nothing on a card
+   changes state, so it has no transition. */
 .card {
   background: var(--color-surface);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
+  border: var(--clr-element-border);
+  border-top: 3px solid var(--color-primary);
+  box-shadow: var(--edge-highlight), var(--shadow-lg);
 
   display: flex;
   flex-direction: column;
