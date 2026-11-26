@@ -37,6 +37,7 @@
   "devDependencies": {
     "@axe-core/cli": "^4.13.0",
     "@cspell/dict-it-it": "^3.1.6",
+    "@sveltia/cms": "^0.273.1",
     "cspell": "^10.3.4",
     "htmlhint": "^1.9.2",
     "linkinator": "^8.1.0",

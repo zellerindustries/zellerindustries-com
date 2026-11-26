@@ -10,7 +10,8 @@
     "externals": {
       "./node_modules/bootstrap-icons/font/fonts": "fonts",
       "./node_modules/@fontsource-variable/oxanium/files/oxanium-latin-wght-normal.woff2": "fonts/oxanium-latin-wght-normal.woff2",
-      "./node_modules/@fontsource-variable/oxanium/files/oxanium-latin-ext-wght-normal.woff2": "fonts/oxanium-latin-ext-wght-normal.woff2"
+      "./node_modules/@fontsource-variable/oxanium/files/oxanium-latin-ext-wght-normal.woff2": "fonts/oxanium-latin-ext-wght-normal.woff2",
+      "./node_modules/@sveltia/cms/dist/sveltia-cms.js": "blog/sveltia-cms.js"
     }
   },
   "output": {
