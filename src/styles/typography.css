@@ -14,31 +14,45 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Links: --clr-link clears 4.5:1 on the navy surfaces; hover and focus shift
+   to the body text colour. Components set their own link colours. */
 a {
-  color: var(--color-text);
+  color: var(--clr-link);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color var(--transition-fast);
 }
 
 a:focus-visible {
-  color: var(--color-accent-hover);
+  color: var(--color-text);
 }
 
 /* Hover-only effects are gated behind (hover: hover) so tapping a link on a
    touch device doesn't leave it visually "stuck" in its hover state. */
 @media (hover: hover) and (pointer: fine) {
   a:hover {
-    color: var(--color-accent-hover);
+    color: var(--color-text);
   }
+}
+
+/* Fixed heading scale: h1 bold, h2 and h3 semibold. */
+h1 {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
 }
 
 h2 {
   font-family: var(--font-secondary);
-  font-size: var(--font-size-xl);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
   letter-spacing: 0.08em;
   color: var(--color-text);
   text-align: center;
+  text-wrap: balance;
   margin-bottom: var(--spacing-md);
   /* A long single-word heading (e.g. "Collaboratori") at this size can be
      wider than narrow viewports; break it instead of overflowing. */
@@ -47,15 +61,34 @@ h2 {
 
 h3 {
   font-family: var(--font-secondary);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
   letter-spacing: 0.05em;
   color: var(--color-text);
+  text-wrap: balance;
 }
 
 p {
   color: var(--color-text-muted);
   text-align: center;
+  text-wrap: pretty;
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* Small uppercase label above a heading. */
+.eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-primary-text);
+}
+
+/* Intro paragraph under a heading, capped to a readable measure. */
+.lead {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  max-width: 60ch;
 }

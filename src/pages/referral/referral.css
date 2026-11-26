@@ -24,7 +24,7 @@
   background-color: var(--color-surface);
   border: var(--clr-element-border);
   border-radius: 9999px;
-  color: var(--color-primary);
+  color: var(--clr-primary-text);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.05em;

@@ -33,7 +33,7 @@
     width: 100%;
     background-color: var(--color-surface);
     border-bottom: var(--clr-element-border);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-md);
 
     /* Mobile hide state */
     max-height: 0;
@@ -52,17 +52,10 @@
     width: 100%;
   }
 
-  #main-nav a {
+  #main-nav a:not(.btn) {
     display: block;
     padding: var(--spacing-xs) 0;
     border-bottom: 1px solid var(--clr-surface-hover);
-  }
-
-  #main-nav a.btn.cta {
-    border-bottom: none;
-    margin-top: var(--spacing-xs);
-    text-align: center;
-    border-radius: 4px; /* Optional: Squarer button on mobile, or keep 50px */
   }
 
   /* Mobile Open State */

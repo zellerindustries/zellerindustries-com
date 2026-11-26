@@ -18,7 +18,7 @@
   "scripts": {
     "prepare": "husky",
     "build": "mz b --overwrite",
-    "start": "npm run build && serve ./dist",
+    "start": "npm run build && mz serve ./dist",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint:html": "htmlhint \"src/pages/**/*.html\"",

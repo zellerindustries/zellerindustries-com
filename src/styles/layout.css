@@ -37,6 +37,72 @@ main > * {
 }
 
 /* ------------------------------
+   CONTENT SECTIONS
+   Each section pads itself (main > *); .section-inner caps and stacks the content.
+------------------------------ */
+.section-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* Section titles and intros read left-aligned, against the global centred h2 and p. */
+.section-head h2 {
+  text-align: start;
+  margin-bottom: 0;
+}
+
+.section-head p {
+  text-align: start;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* Grid of plain items. Track minimums use min() so 320px screens never overflow. */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--spacing-lg) var(--spacing-md);
+  align-items: start;
+}
+
+.item-grid.wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+}
+
+/* A lone item keeps the width of one grid column instead of stretching across the section. */
+.item-grid.single {
+  grid-template-columns: minmax(0, 520px);
+}
+
+/* Closing call to action: one centred column. */
+.section-closing {
+  max-width: 800px;
+  align-items: center;
+  text-align: center;
+}
+
+.section-closing h2 {
+  margin-bottom: 0;
+}
+
+.section-closing p {
+  margin: 0;
+}
+
+.closing-note {
+  font-size: var(--font-size-sm);
+}
+
+/* ------------------------------
    LIST LAYOUT
 ------------------------------ */
 .list {

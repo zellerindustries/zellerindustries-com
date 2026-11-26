@@ -4,11 +4,9 @@
 
 #hero {
   padding: var(--spacing-lg) var(--spacing-md);
-  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 90% 10%, rgba(204, 102, 0, 0.08) 0%, transparent 60%);
 }
 
 .hero-container {
@@ -29,32 +27,14 @@
 }
 
 .hero-content h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4rem);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
 }
 
-#title-zeller {
-  display: block;
-  color: var(--color-text);
-}
-
+/* Only /linkinbio uses these two title spans; they stay plain text. */
+#title-zeller,
 #title-industries {
   display: block;
-  color: var(--color-primary);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--clr-primary-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-#hero-tagline {
-  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-  line-height: 1.6;
-  color: var(--color-text-muted);
-  margin-bottom: 2rem;
-  max-width: 540px;
+  color: var(--color-text);
 }
 
 /* Buttons */
@@ -65,17 +45,61 @@
   width: 100%;
 }
 
-/* --- Metrics & Pillars Grid (Right Column) --- */
-.hero-grid-metrics {
+/* --- Home hero: left-aligned text column ---
+   The global p rule centres text and sets auto margins, which would also
+   centre these paragraphs inside the flex column. */
+.hero-content .eyebrow,
+.hero-content .lead,
+.hero-caption {
+  text-align: start;
+  margin: 0;
+}
+
+.hero-caption {
+  font-size: var(--font-size-sm);
+}
+
+.hero-content .hero-actions {
+  justify-content: flex-start;
+}
+
+/* --- Home hero: "Come lavoriamo" card (right column) --- */
+.hero-process .card-title {
+  text-align: start;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.hero-process ol {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* The number is decoration: the ol already announces the position. */
+.hero-process li {
+  counter-increment: step;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--spacing-xs);
+  align-items: baseline;
 }
 
-h1 {
-  font-family: var(--font-secondary);
+.hero-process li::before {
+  content: counter(step, decimal-leading-zero);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  color: var(--clr-primary-text);
 }
 
-#hero .btn.secondary {
-  padding: var(--spacing-xs) var(--spacing-lg);
+.hero-process li p {
+  font-size: 1rem;
+}
+
+.step-title {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }

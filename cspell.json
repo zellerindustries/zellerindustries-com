@@ -22,7 +22,9 @@
     "YAMAS",
     "Yamas",
     "Desh",
-    "Battafarano"
+    "Battafarano",
+    "dostone",
+    "yamastavernagreca"
   ],
   "ignoreRegExpList": [
     "href\\s*=\\s*\"[^\"]*\"",

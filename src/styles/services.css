@@ -1,0 +1,53 @@
+/* ==========================================================================
+   ZELLER INDUSTRIES — Service pages
+   Overview rows and the process list. The rest of the service template reuses
+   .section-inner, .item-grid and .item from layout.css and items.css.
+   ========================================================================== */
+
+/* The process steps are an ordered list; the item grid needs it without markers. */
+ol.item-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- Overview: one row per service (text column + "Cosa include" column) --- */
+.service-row {
+  padding-top: var(--spacing-lg);
+  border-top: var(--clr-element-border);
+}
+
+.service-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.service-row h2 {
+  text-align: start;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.service-row .link {
+  align-self: flex-start;
+}
+
+.service-include .eyebrow {
+  text-align: start;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.service-list {
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding-inline-start: 1.25em;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.service-list li::marker {
+  color: var(--clr-primary-text);
+}

@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: zellerindustries/zellerindustrie-it
+  branch: main
+
+media_folder: 'src/public/assets/blog/images'
+public_folder: '/assets/blog/images'
+
+collections:
+  - name: 'blog'
+    label: 'Blog Posts'
+    folder: 'src/pages/blog' # <-- CHECK THIS PATH (see #2 below)
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

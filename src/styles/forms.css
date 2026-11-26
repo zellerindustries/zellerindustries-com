@@ -11,25 +11,17 @@ fieldset {
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
   background-color: var(--color-surface);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  transition: border-color var(--transition-fast);
-}
-
-fieldset:focus-within {
-  border-color: rgba(204, 102, 0, 0.4);
 }
 
 legend {
   font-family: var(--font-secondary);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  color: var(--clr-primary-text);
   padding: 0 var(--spacing-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   background-color: var(--color-bg);
   border-radius: var(--radius-sm);
 }
@@ -37,24 +29,20 @@ legend {
 label {
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
   cursor: pointer;
-  transition: color var(--transition-fast);
-}
-
-label:focus-within {
-  color: var(--color-primary);
 }
 
 label:has(+ *:required)::after,
 *:required + label::after,
 *:required + .input-error + label::after {
   content: ' *';
-  color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
+  color: var(--clr-primary-text);
+  font-weight: var(--font-weight-medium);
 }
 
 output {
@@ -76,14 +64,14 @@ textarea {
   padding: var(--spacing-xs) var(--spacing-sm);
   background-color: var(--color-bg);
   color: var(--color-text);
-  border: 1px solid var(--color-border);
+  min-height: 48px;
+  border: 1px solid var(--clr-line);
   border-radius: var(--radius-sm);
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
   transition:
     border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    background-color var(--transition-fast);
 }
 
 textarea {
@@ -96,13 +84,10 @@ select {
   cursor: pointer;
 }
 
-:is(input, select, textarea):focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
+/* The border stays one 1px --clr-line in every state; focus adds a ring outside it. */
 :is(input, select, textarea):focus-visible {
-  box-shadow: 0 0 0 3px rgba(204, 102, 0, 0.2);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 input:-webkit-autofill,
@@ -122,25 +107,11 @@ textarea:-webkit-autofill:focus {
   font-style: italic;
 }
 
-input:required:user-invalid,
-textarea:required:user-invalid,
-select:required:user-invalid {
-  border-color: var(--color-error);
-  border-left-width: 4px;
-}
-
-input:required:user-valid,
-textarea:required:user-valid,
-select:required:user-valid {
-  border-color: var(--color-success);
-}
-
 :is(input, select, textarea):disabled,
 :is(input, select, textarea)[readonly] {
   opacity: 0.6;
   cursor: not-allowed;
   background-color: transparent;
-  border-style: dashed;
 }
 
 input[type='checkbox'],
@@ -153,7 +124,7 @@ input[type='radio'] {
   display: inline-grid;
   place-content: center;
   background-color: var(--color-bg);
-  border: 1px solid var(--color-text-muted);
+  border: 1px solid var(--clr-line);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition:
@@ -168,15 +139,15 @@ input[type='radio'] {
 
 input[type='checkbox']:checked,
 input[type='radio']:checked {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--clr-primary-cta);
+  border-color: var(--clr-primary-cta);
 }
 
 input[type='checkbox']:checked::after {
   content: '';
   width: 0.3rem;
   height: 0.6rem;
-  border: solid var(--color-surface);
+  border: solid var(--color-text-inverse);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg) translate(-1px, -1px);
 }
@@ -186,12 +157,12 @@ input[type='radio']:checked::after {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: var(--color-surface);
+  background-color: var(--color-text-inverse);
 }
 
 input[type='checkbox']:focus-visible,
 input[type='radio']:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -253,7 +224,7 @@ input[type='range'] {
 }
 
 input[type='range']:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-focus);
   outline-offset: 4px;
 }
 
@@ -279,7 +250,8 @@ input[type='color']::-webkit-color-swatch {
 button {
   font-family: var(--font-secondary);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
+  min-height: 48px;
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
@@ -288,37 +260,40 @@ button {
   align-items: center;
   justify-content: center;
   gap: var(--spacing-xs);
-  transition: all var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 button[type='submit'] {
-  background-color: var(--color-primary);
+  background-color: var(--clr-primary-cta);
+  border-color: var(--clr-primary-cta);
   color: var(--color-text-inverse);
-  box-shadow: 0 4px 10px rgba(204, 102, 0, 0.2);
-}
-
-button[type='submit']:active:not(:disabled) {
-  transform: translateY(0);
 }
 
 button[type='submit']:disabled {
   background-color: var(--color-surface);
+  border-color: var(--clr-line);
   color: var(--color-text-muted);
-  box-shadow: none;
   cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 button[type='reset'] {
   background-color: transparent;
   color: var(--color-text-muted);
-  border-color: var(--color-border);
+  border-color: var(--clr-line);
 }
 
 /* Hover-only effects are gated behind (hover: hover) so tapping a control
    on a touch device doesn't leave it visually stuck in its hover state. */
 @media (hover: hover) and (pointer: fine) {
   :is(input, select, textarea):hover:not(:disabled) {
-    background-color: color-mix(in srgb, var(--color-bg) 85%, white);
+    background-color: color-mix(in srgb, var(--color-bg) 85%, var(--color-text));
   }
 
   input[type='file']::file-selector-button:hover {
@@ -328,9 +303,8 @@ button[type='reset'] {
   }
 
   button[type='submit']:hover:not(:disabled) {
-    background-color: var(--color-primary-hover);
-    box-shadow: 0 6px 15px rgba(204, 102, 0, 0.3);
-    transform: translateY(-2px);
+    background-color: var(--clr-primary-cta-hover);
+    border-color: var(--clr-primary-cta-hover);
   }
 
   button[type='reset']:hover:not(:disabled) {
@@ -351,12 +325,12 @@ button[type='reset'] {
 }
 
 .char-counter.warning {
-  color: var(--color-error);
+  color: var(--clr-error-text);
 }
 
 .input-error {
   font-size: var(--font-size-sm);
-  color: var(--color-error);
+  color: var(--clr-error-text);
 }
 
 button[type='submit'].loading {
@@ -377,12 +351,12 @@ button[type='submit'].loading {
 
 #form-status.error {
   background-color: color-mix(in srgb, var(--color-error) 10%, transparent);
-  color: var(--color-error);
+  color: var(--clr-error-text);
 }
 
 #form-status.success {
   background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
-  color: var(--color-success);
+  color: var(--clr-success-text);
 }
 
 #form-success {
@@ -392,6 +366,21 @@ button[type='submit'].loading {
 
 #form-success .icon {
   font-size: calc(var(--font-size-xl) * 1.5);
-  color: var(--color-primary);
+  color: var(--clr-primary-text);
   margin-bottom: var(--spacing-md);
+}
+
+/* Reduced motion: state changes stay visible, nothing moves. */
+@media (prefers-reduced-motion: reduce) {
+  :is(input, select, textarea),
+  input[type='checkbox'],
+  input[type='radio'],
+  button {
+    transition-duration: 0.01ms;
+  }
+
+  input[type='checkbox']:active,
+  input[type='radio']:active {
+    transform: none;
+  }
 }
